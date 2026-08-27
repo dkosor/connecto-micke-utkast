@@ -1,0 +1,122 @@
+/* Oversikt. The same sheet as the rest, but this one presents the work rather
+   than being the work, so it leans on plates and numbered sequences. */
+
+.ov-side .sec{padding:clamp(72px,9vw,132px) 0}
+.ov-side h1{font-size:clamp(2.5rem,6.2vw,4.6rem);font-weight:500;
+  letter-spacing:-.048em;line-height:.94;margin-bottom:clamp(22px,2.8vw,32px)}
+.ov-side .nav__logo{display:inline-flex;align-items:center}
+.ov-side .nav__logo img{width:112px;height:auto}
+
+/* ---- topp -------------------------------------------------------------- */
+.ov-topp{overflow:hidden}
+.ov-wm{position:absolute;right:-6%;top:-8%;width:min(58%,760px);color:var(--navy);
+  opacity:.045;pointer-events:none;z-index:0}
+.ov-wm svg{width:100%;height:auto;display:block}
+
+.ov-fakta{margin-top:clamp(38px,4.6vw,58px);display:grid;gap:0;
+  border-top:1px solid var(--rule)}
+@media(min-width:760px){.ov-fakta{grid-template-columns:repeat(3,1fr)}}
+.ov-fakta > div{padding:20px 22px 22px 0;border-bottom:1px solid var(--rule)}
+@media(min-width:760px){
+  .ov-fakta > div{border-bottom:0;padding:22px 20px 6px 0}
+  .ov-fakta > div + div{border-left:1px solid var(--rule);padding-left:20px}
+}
+.ov-fakta__k{font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--navy);margin-bottom:9px}
+.ov-fakta p:last-child{font-size:.98rem;line-height:1.5;letter-spacing:-.012em;
+  color:rgba(20,36,58,.82)}
+
+.ov-merk{margin-top:clamp(30px,3.6vw,44px);max-width:66ch;
+  background:#FFFFFF;border:1px solid rgba(20,36,58,.18);
+  padding:clamp(16px,2vw,20px);font-size:.92rem;line-height:1.65;
+  color:rgba(20,36,58,.82)}
+.ov-merk a{color:var(--navy);border-bottom:1px solid currentColor;padding-bottom:1px}
+
+/* ---- de to sidene ------------------------------------------------------ */
+.ov-kort{margin-top:clamp(34px,4.2vw,52px);display:grid;gap:clamp(26px,3.4vw,40px)}
+@media(min-width:900px){.ov-kort{grid-template-columns:1fr 1fr}}
+.ov-kort__en{display:flex;flex-direction:column;
+  background:#FFFFFF;border:1px solid rgba(20,36,58,.18);
+  transition:transform .4s var(--e),border-color .3s var(--e)}
+.ov-kort__en:hover{border-color:var(--navy);transform:translateY(-3px)}
+.ov-kort__bilde{display:block;overflow:hidden;border-bottom:1px solid rgba(20,36,58,.14);
+  max-height:340px}
+.ov-kort__bilde img{width:100%;height:auto;display:block;
+  transition:transform .6s var(--e)}
+.ov-kort__en:hover .ov-kort__bilde img{transform:scale(1.02)}
+.ov-kort__tekst{display:block;padding:clamp(20px,2.4vw,28px)}
+.ov-kort__n{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;
+  color:var(--label);margin-bottom:12px}
+.ov-kort__h{display:block;font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:500;
+  letter-spacing:-.03em;line-height:1.15;color:var(--ink);margin-bottom:12px}
+.ov-kort__d{display:block;font-size:.96rem;line-height:1.6;color:rgba(20,36,58,.78);
+  margin-bottom:18px}
+.ov-kort__a{display:inline-block;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--navy);
+  transition:transform .34s var(--e)}
+.ov-kort__en:hover .ov-kort__a{transform:translateX(6px)}
+
+/* ---- retningene -------------------------------------------------------- */
+.ov-retn{margin-top:clamp(34px,4.2vw,52px);display:grid;gap:clamp(30px,3.6vw,44px)}
+.ov-retn__en figure{margin:0;display:grid;gap:clamp(16px,2.2vw,26px);align-items:start}
+@media(min-width:900px){
+  .ov-retn__en figure{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+    gap:clamp(24px,3vw,40px)}
+}
+.ov-retn__en img{width:100%;height:auto;display:block;
+  border:1px solid rgba(20,36,58,.16);filter:saturate(.96)}
+.ov-retn__en figcaption{display:block}
+.ov-retn__n{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;
+  color:var(--label);margin-bottom:10px}
+.ov-retn__h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  font-size:clamp(1.25rem,2vw,1.6rem);font-weight:500;letter-spacing:-.03em;
+  color:var(--ink);margin-bottom:12px}
+.ov-retn__h b{font-family:var(--mono);font-size:.6rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--paper);background:var(--navy);padding:5px 9px}
+.ov-retn__d{display:block;font-size:.96rem;line-height:1.65;color:rgba(20,36,58,.78);
+  max-width:46ch}
+.ov-retn__en.er-valgt img{border-color:var(--navy);border-width:2px}
+
+/* ---- nummererte lister (avklares, videre) ------------------------------ */
+.ov-sp,.ov-steg{margin-top:clamp(32px,4vw,48px);display:grid;gap:0;
+  border-top:1px solid var(--rule)}
+.ov-sp li,.ov-steg li{display:grid;grid-template-columns:auto 1fr;
+  gap:clamp(16px,3vw,34px);align-items:start;
+  padding:clamp(24px,3vw,34px) 0;border-bottom:1px solid var(--rule)}
+.ov-sp__n,.ov-steg__n{font-family:var(--mono);font-size:clamp(1.3rem,2.6vw,2rem);
+  color:var(--navy);line-height:1;letter-spacing:-.02em}
+.ov-sp h3,.ov-steg h3{font-size:clamp(1.12rem,1.9vw,1.42rem);font-weight:600;
+  letter-spacing:-.026em;line-height:1.25;margin-bottom:12px}
+.ov-sp p,.ov-steg p{font-size:.98rem;line-height:1.7;color:rgba(20,36,58,.8);max-width:62ch}
+.ov-sp p + p{margin-top:12px}
+.ov-sp__svar{color:var(--navy) !important;font-weight:500}
+
+/* ---- avslutning -------------------------------------------------------- */
+.ov-avslutt{margin-top:clamp(38px,4.6vw,58px);border-top:1px solid var(--navy);
+  padding-top:clamp(24px,3vw,32px)}
+.ov-avslutt__k{font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--navy);margin-bottom:20px}
+.ov-avslutt__lenker{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center}
+
+/* ---- bunn -------------------------------------------------------------- */
+.ov-foot{background:var(--navy);color:var(--paper);position:relative;overflow:hidden}
+.ov-foot__rhino{position:absolute;right:-8%;top:50%;transform:translateY(-54%);
+  width:min(64%,760px);pointer-events:none;color:var(--paper)}
+.ov-foot__rhino svg{width:100%;height:auto;display:block}
+.ov-foot__rhino .rh-ghost{stroke:rgba(242,241,236,.12)}
+.ov-foot__rhino .rh-draw{stroke:rgba(242,241,236,.45)}
+.ov-foot .wrap{position:relative;z-index:1}
+.ov-foot__h{font-size:clamp(2rem,4.4vw,3.4rem);font-weight:500;color:var(--paper);
+  letter-spacing:-.038em;margin-bottom:clamp(28px,3.4vw,40px)}
+.ov-foot__bunn{margin-top:clamp(46px,5.6vw,72px);border-top:1px solid rgba(242,241,236,.2);
+  padding-top:clamp(26px,3vw,36px);display:grid;gap:22px;align-items:start}
+@media(min-width:760px){.ov-foot__bunn{grid-template-columns:auto 1fr;gap:clamp(28px,4vw,54px)}}
+.ov-foot__bunn p{font-size:.88rem;line-height:1.8;color:rgba(242,241,236,.8);max-width:62ch}
+.ov-foot__bunn a{color:var(--paper);border-bottom:1px solid rgba(242,241,236,.4);padding-bottom:1px}
+.ov-foot__bunn a:hover{border-bottom-color:var(--paper)}
+
+@media(prefers-reduced-motion:reduce){
+  .ov-kort__en:hover{transform:none}
+  .ov-kort__en:hover .ov-kort__bilde img{transform:none}
+  .ov-foot__rhino .rh-draw{stroke-dasharray:none !important;stroke-dashoffset:0 !important}
+}
