@@ -1,0 +1,582 @@
+/* Micke Bernakiewicz / Connecto Bedriftsmegling
+   Spine: archive / dossier. Palette and mark taken from Connecto's own logo file.
+   One radius scale: everything is square. No shadows anywhere. */
+
+:root{
+  --paper:#F2F1EC;
+  --band:#E8E6DF;
+  --ink:#14243A;
+  --navy:#134F89;
+  --quiet:#9D9D9C;
+  --rule:rgba(157,157,156,.42);
+  --rule-hard:rgba(20,36,58,.17);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+
+  --wrap:1240px;
+  --gut:clamp(20px,5vw,64px);
+  --rail:64px;
+
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+
+  --e:cubic-bezier(.16,.84,.24,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:clamp(15px,.4vw + 14px,17px);
+  line-height:1.7;letter-spacing:-.004em;
+  font-variant-numeric:oldstyle-nums proportional-nums;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.038em;line-height:.98;
+  font-variant-numeric:lining-nums}
+p{margin:0}
+ol,ul{margin:0;padding:0;list-style:none}
+hr{border:0;margin:0}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:var(--paper);padding:12px 18px;z-index:99}
+.skip:focus{left:12px;top:12px}
+:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
+
+/* ---- shared type ------------------------------------------------------ */
+.kick,.secno,.tbl__h,.tl__k,.foot__k,.hero__rail,.railidx,figcaption{
+  font-family:var(--mono);font-size:.68rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;line-height:1.55;
+}
+.lead{font-size:clamp(1.06rem,1.6vw,1.32rem);line-height:1.62;max-width:56ch;letter-spacing:-.013em}
+.lead--tight{margin-top:18px}
+.fine{font-size:.83rem;color:rgba(20,36,58,.6);line-height:1.7;margin-top:26px;max-width:74ch}
+.fine .ul{color:var(--navy);border-bottom:1px solid currentColor;padding-bottom:1px;
+  white-space:nowrap;margin-left:6px}
+.fine .ul:hover{color:var(--ink)}
+
+.rule{height:1px;background:var(--rule);transform:scaleX(var(--rx,1));transform-origin:0 50%;
+  margin:44px 0 0;transition:transform 1.15s var(--e)}
+.rule--wide{margin:0}
+
+.secno{color:var(--navy);display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.secno span{color:var(--quiet)}
+.secno::after{content:"";flex:0 0 40px;height:1px;background:var(--rule);order:-1;display:none}
+.secno--inv{color:var(--paper)}
+.secno--inv span{color:rgba(242,241,236,.55)}
+
+.sec{padding:clamp(86px,10.5vw,164px) 0;position:relative}
+.sec h2{font-size:clamp(2.05rem,4.4vw,3.65rem)}
+.band{background:var(--band)}
+
+/* ---- nav -------------------------------------------------------------- */
+.nav{position:sticky;top:0;z-index:40;background:rgba(242,241,236,.86);backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;transition:border-color .3s var(--e),background .3s var(--e)}
+.nav.is-stuck{border-bottom-color:var(--rule)}
+.nav__in{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut);height:72px;
+  display:flex;align-items:center;gap:clamp(16px,4vw,48px)}
+.nav__logo img{width:112px;height:auto}
+.nav__links{display:flex;gap:clamp(14px,2.2vw,30px);margin-left:auto;font-size:.9rem;letter-spacing:-.01em}
+.nav__links a{position:relative;padding:6px 0;color:var(--ink)}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--navy);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .34s var(--e)}
+.nav__links a:hover::after,.nav__links a:focus-visible::after,.nav__links a.is-on::after{transform:scaleX(1)}
+.nav__tel{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--navy);
+  border:1px solid var(--rule-hard);padding:9px 14px;white-space:nowrap;
+  transition:background .25s var(--e),color .25s var(--e),border-color .25s var(--e)}
+.nav__tel:hover{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+.nav__tel-lbl{color:var(--quiet)}
+.nav__tel:hover .nav__tel-lbl{color:rgba(242,241,236,.7)}
+/* On a phone the page is a short linear document, so the section jumps come off
+   and the one action that matters keeps the space. */
+@media(max-width:780px){
+  .nav__links{display:none}
+  .nav__in{height:64px;justify-content:space-between}
+  .nav__tel{margin-left:auto;padding:8px 12px;font-size:.7rem}
+  .nav__logo img{width:98px}
+}
+
+/* ---- fixed index rail ------------------------------------------------- */
+.railidx{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:30;display:none}
+.railidx li{display:flex;align-items:center;justify-content:flex-end;gap:9px;
+  color:var(--quiet);font-size:.62rem;padding:5px 0;transition:color .3s var(--e)}
+.railidx li span{width:30px;height:1px;background:currentColor;
+  transform:scaleX(.47);transform-origin:100% 50%;transition:transform .38s var(--e)}
+.railidx li.is-on{color:var(--navy)}
+.railidx li.is-on span{transform:scaleX(1)}
+@media(min-width:1200px){.railidx{display:block}}
+
+/* ---- 01 hero ---------------------------------------------------------- */
+.hero{position:relative;padding-top:clamp(16px,2.4vw,34px);overflow:hidden}
+.hero__rail{position:absolute;
+  left:clamp(var(--gut), calc(50% - (var(--wrap) / 2) + 14px), 50%);
+  top:clamp(80px,12vw,150px);
+  writing-mode:vertical-rl;transform:rotate(180deg);color:var(--quiet);display:none}
+@media(min-width:1080px){.hero__rail{display:block}}
+
+.hero__wm{position:absolute;right:-5%;top:-4%;width:min(64%,860px);color:var(--navy);
+  opacity:.05;pointer-events:none;
+  transform:translate3d(calc(var(--mx,0) * 22px), calc(var(--my,0) * 14px + var(--sy,0) * -60px),0);
+  will-change:transform}
+.hero__wm svg{width:100%;height:auto;display:block}
+
+.hero__in{position:relative;max-width:var(--wrap);margin:0 auto;padding:0 var(--gut) clamp(38px,5vw,64px);
+  display:grid;grid-template-columns:1fr;gap:clamp(30px,4vw,50px);align-items:end}
+@media(min-width:900px){
+  .hero__in{grid-template-columns:minmax(0,1.3fr) minmax(270px,.8fr);gap:clamp(28px,3.6vw,56px);
+    padding-top:clamp(22px,3.4vw,46px)}
+}
+
+.hero__text{transform:translate3d(calc(var(--mx,0) * -6px), calc(var(--sy,0) * 26px),0);will-change:transform}
+.kick{color:var(--navy);display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(16px,2.2vw,24px)}
+.kick__d{color:var(--quiet)}
+.hero h1{font-size:clamp(2.7rem,7.3vw,5.45rem);letter-spacing:-.05em;line-height:.92}
+.hero__sub{margin-top:clamp(16px,2vw,24px);font-size:clamp(1.02rem,1.4vw,1.2rem);
+  line-height:1.5;max-width:40ch;letter-spacing:-.014em;color:rgba(20,36,58,.82)}
+.hero__cta{margin-top:clamp(22px,2.8vw,34px);display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+
+.hero__fig{margin:0;position:relative;
+  transform:translate3d(calc(var(--mx,0) * 9px), calc(var(--my,0) * 7px + var(--sy,0) * -14px),0);
+  will-change:transform}
+.hero__fig img{width:100%;filter:grayscale(.12) contrast(1.03)}
+.hero__fig::before{content:"";position:absolute;left:-14px;top:-14px;width:1px;height:74px;background:var(--navy)}
+.hero__fig figcaption{margin-top:12px;color:var(--quiet);display:flex;align-items:center;gap:10px}
+.hero__fig figcaption::before{content:"";width:22px;height:1px;background:var(--rule)}
+
+/* ---- CTA garment 1: stamp press --------------------------------------- */
+.stamp{position:relative;display:inline-block;padding:19px 34px;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--navy);border:1px solid rgba(19,79,137,.55);
+  transition:transform .2s var(--e),background .4s var(--e),color .4s var(--e),border-color .4s var(--e)}
+.stamp__b{position:absolute;inset:3px;border:1px solid currentColor;opacity:0;
+  transition:opacity .22s var(--e)}
+.stamp:hover{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+.stamp:hover .stamp__b{opacity:.42;inset:4px}
+.stamp:active{transform:skewX(-.6deg) scale(.985)}
+.stamp--inv{color:var(--paper);border-color:rgba(242,241,236,.55)}
+.stamp--inv:hover{background:var(--paper);color:var(--navy);border-color:var(--paper)}
+
+/* ---- CTA garment 2: mono readout -------------------------------------- */
+.readout{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;color:var(--ink);
+  position:relative;padding-bottom:4px;overflow:hidden;display:inline-block}
+.readout::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--navy);
+  transform:translateX(-101%);transition:transform .42s var(--e)}
+.readout:hover::after,.readout:focus-visible::after{transform:translateX(0)}
+.readout:hover .readout__t{color:var(--navy)}
+.readout__t{transition:color .25s var(--e)}
+
+/* ---- 02 bakgrunn ------------------------------------------------------ */
+.bak__grid{display:grid;grid-template-columns:1fr;gap:clamp(18px,3vw,40px);
+  margin-top:clamp(34px,4.5vw,56px);align-items:start;position:relative}
+@media(min-width:820px){.bak__grid{grid-template-columns:minmax(0,.42fr) minmax(0,.58fr)}}
+.bak__num{font-size:clamp(9rem,21vw,17rem);line-height:.74;font-weight:600;letter-spacing:-.06em;
+  color:var(--navy);opacity:.14;margin-left:calc(var(--gut) * -1);user-select:none}
+@media(min-width:820px){.bak__num{margin-left:clamp(-90px,-6vw,-40px)}}
+.bak__body p + p{margin-top:18px;color:rgba(20,36,58,.78);max-width:52ch}
+
+.tl{margin-top:clamp(40px,5.5vw,70px);display:grid;gap:0;border-top:1px solid var(--rule)}
+@media(min-width:900px){.tl{grid-template-columns:repeat(5,1fr)}}
+.tl li{padding:20px 22px 24px 0;border-bottom:1px solid var(--rule);position:relative}
+@media(min-width:900px){
+  .tl li{border-bottom:0;padding:22px 20px 4px 0}
+  .tl li + li{border-left:1px solid var(--rule);padding-left:20px}
+}
+.tl li::before{content:"";position:absolute;left:0;top:-1px;width:100%;height:1px;background:var(--navy);
+  transform:scaleX(var(--tx,0));transform-origin:0 50%;transition:transform .6s var(--e)}
+@media(min-width:900px){.tl li + li::before{left:-1px}}
+.tl__k{display:block;color:var(--navy);margin-bottom:8px}
+.tl__v{display:block;font-size:.95rem;line-height:1.45;letter-spacing:-.012em;color:rgba(20,36,58,.8)}
+
+/* ---- 03 metoden ------------------------------------------------------- */
+/* All thirteen stages are always on screen. Never a horizontal scroll that
+   quietly swallows the last two steps. */
+.steps{margin-top:clamp(30px,4vw,44px);display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(96px,1fr));
+  border-top:1px solid var(--rule-hard);border-left:1px solid var(--rule)}
+@media(min-width:1180px){
+  .steps{grid-template-columns:repeat(13,minmax(0,1fr));border-left:0;
+    margin-inline:calc(50% - 50vw + 8px);padding-inline:calc(var(--gut) - 8px)}
+}
+.steps button{
+  appearance:none;background:none;border:0;cursor:pointer;
+  border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  text-align:left;padding:18px 11px 20px;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--quiet);
+  position:relative;transition:color .25s var(--e),background .25s var(--e)}
+@media(min-width:1180px){
+  .steps button{border-bottom:0;padding:20px 12px 22px}
+  .steps button:first-child{border-left:1px solid var(--rule)}
+}
+.steps button:last-child{border-right:0}
+.steps button em{display:block;margin-top:9px;font-family:var(--sans);font-style:normal;
+  font-size:.8rem;letter-spacing:-.016em;text-transform:none;color:var(--ink);
+  line-height:1.26;hyphens:auto;overflow-wrap:break-word}
+.steps button::before{content:"";position:absolute;left:0;right:0;top:-1px;height:2px;background:var(--navy);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .34s var(--e)}
+.steps button:hover{background:rgba(19,79,137,.045);color:var(--navy)}
+.steps button[aria-selected="true"]{color:var(--navy)}
+.steps button[aria-selected="true"]::before{transform:scaleX(1)}
+.steps button[aria-selected="true"] em{color:var(--navy)}
+
+@media(max-width:520px){
+  .steps{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
+  .steps button{padding:13px 9px 15px}
+  .steps button em{margin-top:6px;font-size:.76rem}
+}
+
+.stepout{margin-top:0;border-top:1px solid var(--rule-hard);padding:clamp(26px,3.4vw,38px) 0 0;
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,38px);align-items:start}
+.stepout__n{font-family:var(--mono);font-size:clamp(1.6rem,3.4vw,2.6rem);color:var(--navy);
+  letter-spacing:-.02em;line-height:1}
+.stepout h3{font-size:clamp(1.15rem,2vw,1.55rem);letter-spacing:-.025em}
+.stepout p{margin-top:12px;max-width:56ch;color:rgba(20,36,58,.8);line-height:1.6}
+.stepout [data-out="navn"],.stepout [data-out="d"],.stepout [data-out="n"]{
+  animation:swap .34s var(--e) both}
+@keyframes swap{from{transform:translateY(7px)}to{transform:none}}
+
+/* ---- 04 oppdrag ------------------------------------------------------- */
+.opp__head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.opp__stamp{width:clamp(66px,9vw,116px);color:var(--quiet);opacity:.5;flex:0 0 auto}
+.opp__stamp svg{width:100%;height:auto;display:block}
+
+.tbl{margin-top:clamp(26px,3.4vw,38px)}
+.tbl__h{display:none;color:var(--quiet);padding:0 0 12px;border-bottom:1px solid var(--rule-hard)}
+@media(min-width:940px){
+  .tbl__h{display:grid;grid-template-columns:44px minmax(0,2.4fr) 1.25fr .95fr .6fr 1fr 26px;
+    gap:18px;align-items:end}
+  .tbl__h span:first-child{grid-column:2}
+  .tbl__h span:nth-child(3),.tbl__h span:nth-child(4),.tbl__h span:nth-child(5){text-align:right}
+}
+
+.row{display:grid;grid-template-columns:44px 1fr;gap:6px 18px;align-items:baseline;
+  padding:22px 0 24px;border-bottom:1px solid var(--rule);position:relative;
+  transition:transform .55s var(--e)}
+@media(min-width:940px){
+  .row{grid-template-columns:44px minmax(0,2.4fr) 1.25fr .95fr .6fr 1fr 26px;
+    align-items:center;padding:28px 0}
+}
+.row::after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:var(--navy);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .42s var(--e)}
+.row:hover,.row:focus-visible{transform:translateX(6px)}
+.row:hover::after,.row:focus-visible::after{transform:scaleX(1)}
+.row__n{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--quiet);
+  transition:color .25s var(--e)}
+.row:hover .row__n{color:var(--navy)}
+.row__t{font-size:clamp(1rem,1.5vw,1.16rem);letter-spacing:-.02em;line-height:1.32;
+  color:var(--navy);font-weight:500;grid-column:2}
+.row__d{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:rgba(20,36,58,.72);
+  grid-column:2}
+@media(min-width:940px){
+  .row__d{grid-column:auto;text-align:right}
+  .row__d:nth-of-type(1){text-align:left}
+}
+.row__a{grid-column:2;font-size:.95rem;color:var(--navy);transform:translateX(0);
+  transition:transform .34s var(--e)}
+@media(min-width:940px){.row__a{grid-column:auto;text-align:right}}
+.row:hover .row__a{transform:translateX(7px)}
+
+@media(max-width:939px){
+  .row{display:block;padding:20px 0 22px}
+  .row__n{display:inline-block;margin-bottom:9px}
+  .row__t{display:block;margin-bottom:9px}
+  .row__d{display:inline}
+  .row__d + .row__d::before{content:" / ";color:var(--quiet)}
+  .row__d.is-na{display:none}
+  .row__a{display:none}
+}
+
+/* ---- 05 transaksjoner ------------------------------------------------- */
+.trans__wrap{position:relative}
+.trans__ghost{position:absolute;right:0;bottom:-2%;font-size:clamp(11rem,30vw,26rem);
+  line-height:.72;font-weight:600;letter-spacing:-.07em;color:var(--ink);opacity:.05;
+  pointer-events:none;user-select:none;z-index:0}
+.trans__ghost span{font-size:.55em;vertical-align:.28em}
+.trans{overflow:hidden}
+.trans__head,.ledger,.trans__fine{position:relative;z-index:1}
+.trans__head{max-width:46ch}
+.ledger{margin-top:clamp(38px,5vw,60px);border-top:1px solid var(--rule-hard)}
+@media(min-width:1000px){.ledger{margin-left:auto;width:min(100%,660px)}}
+.ledger li{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;align-items:baseline;
+  padding:15px 0;border-bottom:1px solid var(--rule);
+  font-family:var(--mono);font-size:.73rem;letter-spacing:.055em;text-transform:uppercase;
+  color:var(--navy)}
+.ledger li i{font-style:normal;color:var(--quiet);text-align:center}
+.ledger li span:last-child{color:rgba(20,36,58,.66)}
+@media(max-width:620px){
+  .ledger li{grid-template-columns:20px 1fr;gap:3px 8px}
+  .ledger li span:first-child{grid-column:1 / -1}
+  .ledger li i{text-align:left}
+}
+
+/* ---- 06 kontakt ------------------------------------------------------- */
+.kontakt{background:var(--navy);color:var(--paper);padding-bottom:0;overflow:hidden;position:relative}
+.kontakt__rhino{position:absolute;right:-6%;top:50%;transform:translateY(-58%);
+  width:min(72%,860px);pointer-events:none;color:var(--paper)}
+.kontakt__rhino svg{width:100%;height:auto;display:block}
+.kontakt__rhino .rh-ghost{stroke:rgba(242,241,236,.13)}
+.kontakt__rhino .rh-draw{stroke:rgba(242,241,236,.5)}
+.kontakt__wrap{position:relative;z-index:1;max-width:var(--wrap)}
+.kontakt__h{font-size:clamp(2.1rem,5vw,4rem);color:var(--paper)}
+.kontakt__sub{margin-top:22px;font-size:clamp(1.02rem,1.5vw,1.22rem);color:rgba(242,241,236,.74);
+  max-width:38ch;letter-spacing:-.012em}
+.kontakt__lines{margin-top:clamp(34px,4.5vw,52px);display:flex;flex-direction:column;
+  align-items:flex-start;gap:10px}
+.big{font-family:var(--mono);font-size:clamp(1.5rem,3.6vw,2.5rem);letter-spacing:-.02em;
+  color:var(--paper);position:relative;padding-bottom:6px}
+.big--sm{font-size:clamp(.95rem,1.9vw,1.3rem);letter-spacing:.01em;color:rgba(242,241,236,.78)}
+.big::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:rgba(242,241,236,.75);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .4s var(--e)}
+.big:hover::after,.big:focus-visible::after{transform:scaleX(1)}
+.kontakt .stamp{margin-top:clamp(30px,4vw,44px)}
+
+/* ---- footer ----------------------------------------------------------- */
+.foot{margin-top:clamp(64px,9vw,120px);border-top:1px solid rgba(242,241,236,.2);
+  padding:clamp(34px,4.5vw,52px) 0 clamp(30px,4vw,46px);position:relative;z-index:1}
+.foot__in{display:grid;gap:clamp(26px,4vw,54px)}
+@media(min-width:860px){.foot__in{grid-template-columns:auto 1fr;align-items:start}}
+.foot__logo{width:132px;opacity:.9}
+.foot__cols{display:grid;gap:26px;font-size:.86rem;color:rgba(242,241,236,.7);line-height:1.75}
+@media(min-width:620px){.foot__cols{grid-template-columns:repeat(3,1fr);gap:30px}}
+.foot__k{color:var(--paper);margin-bottom:6px}
+.foot__cols a{border-bottom:1px solid rgba(242,241,236,.28);padding-bottom:1px}
+.foot__cols a:hover{border-bottom-color:var(--paper);color:var(--paper)}
+
+/* ---- reduced motion --------------------------------------------------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+  .hero__wm,.hero__text,.hero__fig{transform:none !important}
+  .rule{transform:none !important}
+  .tl li::before{transform:scaleX(1) !important}
+  .kontakt__rhino .rh-draw{stroke-dasharray:none !important;stroke-dashoffset:0 !important}
+}
+
+/* ======================================================================
+   Refinement pass. Same layout, raised material quality.
+   Three moves: the sheet gets real paper tooth, the archival margin rules
+   run the full height of the document, and the portrait is graded into the
+   palette instead of sitting on top of it.
+   ====================================================================== */
+
+/* 1. paper tooth. Fixed so it reads as the stock the page is printed on,
+      not a texture scrolling past. Multiply keeps it honest on the navy. */
+body::after{
+  content:"";position:fixed;inset:0;z-index:60;pointer-events:none;
+  background-image:var(--grain);background-size:180px 180px;
+  opacity:.05;mix-blend-mode:multiply;
+}
+
+/* 2. the margin rules of an archival sheet, running edge to edge through
+      every section including the navy close. */
+@media(min-width:1200px){
+  .hero::before,.hero::after,.sec::before,.sec::after{
+    content:"";position:absolute;top:0;bottom:0;width:1px;
+    background:var(--rule);pointer-events:none;z-index:0;
+  }
+  .hero::before,.sec::before{left:calc(50% - (var(--wrap) / 2) + var(--gut) - 34px)}
+  .hero::after,.sec::after{right:calc(50% - (var(--wrap) / 2) + var(--gut) - 34px)}
+  .kontakt::before,.kontakt::after{background:rgba(242,241,236,.16)}
+  .hero__in,.wrap{position:relative;z-index:1}
+}
+
+/* 3. the portrait, graded into the palette and given an offset hairline
+      register mark instead of a bare edge. */
+.hero__fig picture{position:relative;display:block}
+.hero__fig picture::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:var(--navy);mix-blend-mode:soft-light;opacity:.22;
+}
+.hero__fig img{filter:grayscale(.2) contrast(1.06) brightness(1.02)}
+.hero__fig::before{
+  left:-18px;top:-18px;width:58px;height:1px;background:var(--navy);opacity:.75;
+}
+.hero__fig::after{
+  content:"";position:absolute;left:-18px;top:-18px;width:1px;height:58px;
+  background:var(--navy);opacity:.75;
+}
+.hero__fig figcaption{margin-top:16px;letter-spacing:.24em}
+
+/* 4. the quiet details that separate considered from merely tidy */
+.kick{letter-spacing:.22em}
+.hero__sub{line-height:1.58;color:rgba(20,36,58,.76)}
+.tl__k{letter-spacing:.22em}
+.tl li{padding-bottom:28px}
+.tl__v{line-height:1.5}
+.bak__body p + p{margin-top:22px;line-height:1.72}
+.stepout h3{letter-spacing:-.028em}
+.stepout p{line-height:1.68}
+.steps button{letter-spacing:.14em}
+.row__t{line-height:1.36;letter-spacing:-.022em}
+.row__d{letter-spacing:.1em}
+.tbl__h{padding-bottom:16px}
+.ledger li{padding:17px 0;letter-spacing:.09em}
+.ledger li span:last-child{color:rgba(20,36,58,.6)}
+.fine{line-height:1.75;color:rgba(20,36,58,.55)}
+
+/* 5. the close reads as one deep field of ink */
+.kontakt__sub{line-height:1.6;color:rgba(242,241,236,.7)}
+.big{letter-spacing:-.03em}
+.big--sm{letter-spacing:.06em}
+.foot__cols{line-height:1.85}
+.foot__k{letter-spacing:.22em}
+
+@media(prefers-reduced-motion:reduce){
+  .hero__fig::after{height:58px}
+}
+
+/* 6. register marks. Where a section edge meets a margin rule the sheet gets
+      a printer's tick, the way a real archival document is trimmed. */
+@media(min-width:1200px){
+  .hero::before,.hero::after,.sec::before,.sec::after{
+    width:14px;background:none;
+    background-image:
+      linear-gradient(var(--rule),var(--rule)),
+      linear-gradient(var(--rule),var(--rule));
+    background-repeat:no-repeat,no-repeat;
+    background-size:1px 100%,14px 1px;
+  }
+  .hero::before,.sec::before{
+    left:calc(50% - (var(--wrap) / 2) + var(--gut) - 41px);
+    background-position:7px 0, 0 0;
+  }
+  .hero::after,.sec::after{
+    right:calc(50% - (var(--wrap) / 2) + var(--gut) - 41px);
+    background-position:6px 0, 0 0;
+  }
+  .kontakt::before,.kontakt::after{
+    background-image:
+      linear-gradient(rgba(242,241,236,.16),rgba(242,241,236,.16)),
+      linear-gradient(rgba(242,241,236,.16),rgba(242,241,236,.16));
+  }
+}
+
+/* 7. weight. A lighter display at the same size reads more considered than a
+      heavy one, and the page is asking to be trusted, not shouted at. */
+.hero h1,.sec h2,.kontakt__h{font-weight:500}
+.stepout h3{font-weight:600}
+
+/* 8. contrast. Connecto's logo grey is 2.4:1 on this paper, which is fine for
+      a rule and not fine for a word. Rules and the rhino keep the brand grey,
+      every label that has to be read gets an ink-derived one at 5.1:1. */
+:root{--label:rgba(20,36,58,.68)}
+.secno span,.tbl__h,.row__n,.row__d,figcaption,.kick__d,.ledger li i,
+.hero__rail,.railidx li{color:var(--label)}
+.fine{color:rgba(20,36,58,.7)}
+.ledger li span:last-child{color:rgba(20,36,58,.72)}
+.railidx li.is-on{color:var(--navy)}
+.secno--inv span{color:rgba(242,241,236,.72)}
+.kontakt__sub,.foot__cols{color:rgba(242,241,236,.8)}
+.big--sm{color:rgba(242,241,236,.86)}
+.hero__fig figcaption,.nav__tel-lbl{color:var(--label)}
+
+/* 9. the section index leaves the text column. Five small uppercase labels
+      stacked above five headlines is the template tell; hung vertically in the
+      margin beside the rule, the same words become the sheet's folio marks.
+      Below the margin width they become labelled divider rules instead, which
+      is a divider, not a kicker. */
+.secno::after{
+  content:"";display:block;order:2;flex:1 1 auto;height:1px;background:var(--rule);
+}
+.secno--inv::after{background:rgba(242,241,236,.22)}
+
+@media(min-width:1200px){
+  .secno{
+    position:absolute;top:0;margin:0;display:flex;gap:18px;
+    left:calc(var(--gut) - 24px);
+    writing-mode:vertical-rl;transform:rotate(180deg);
+    white-space:nowrap;z-index:2;
+  }
+  .secno::after{display:none}
+  .trans__head .secno{left:-24px}
+  .opp__head .secno{left:calc(var(--gut) - 24px);top:0}
+  /* the hero rail lines up on the same margin track */
+  .hero__rail{left:calc(50% - (var(--wrap) / 2) + var(--gut) - 24px)}
+}
+
+/* 10. CTA garments, one identity each. The rationed trio is rationed: the stamp
+       is the page's single framed block, nothing floods on hover (the stamp only
+       inks on the press itself), and no label carries a drawn underline.
+       Plain inline links keep a static underline, which is link affordance
+       rather than a garment. */
+
+/* nav links: a small navy register square, not a drawn rule */
+.nav__links a::after{
+  left:50%;right:auto;bottom:0;width:4px;height:4px;background:var(--navy);
+  transform:translateX(-50%) scale(0);transition:transform .34s var(--e)}
+.nav__links a:hover,.nav__links a:focus-visible,.nav__links a.is-on{color:var(--navy)}
+.nav__links a:hover::after,.nav__links a:focus-visible::after,.nav__links a.is-on::after{
+  transform:translateX(-50%) scale(1)}
+
+/* nav phone: corner brackets close around the label, viewfinder style */
+.nav__tel{position:relative;overflow:visible;transition:color .3s var(--e),border-color .3s var(--e)}
+.nav__tel:hover{background:none;color:var(--navy);border-color:transparent}
+.nav__tel:hover .nav__tel-lbl{color:var(--label)}
+.nav__tel::before,.nav__tel::after{
+  content:"";position:absolute;width:9px;height:9px;border:1px solid var(--navy);
+  opacity:0;transition:opacity .3s var(--e),transform .3s var(--e)}
+.nav__tel::before{left:-1px;top:-1px;border-right:0;border-bottom:0;transform:translate(4px,4px)}
+.nav__tel::after{right:-1px;bottom:-1px;border-left:0;border-top:0;transform:translate(-4px,-4px)}
+.nav__tel:hover::before,.nav__tel:hover::after{opacity:1;transform:translate(0,0)}
+
+/* the stamp: no flood on hover, it inks only when pressed */
+.stamp:hover{background:none;color:var(--navy);border-color:var(--navy)}
+.stamp:hover .stamp__b{opacity:.45}
+.stamp:active{transform:skewX(-.7deg) scale(.982);background:var(--navy);color:var(--paper)}
+.stamp--inv:hover{background:none;color:var(--paper);border-color:var(--paper)}
+.stamp--inv:active{background:var(--paper);color:var(--navy)}
+
+/* mono readout: an arrow travels in from the left, the label steps aside */
+.readout{padding-bottom:0;transition:transform .34s var(--e)}
+.readout::after{display:none}
+.readout::before{
+  content:"\2192";position:absolute;left:-22px;top:50%;transform:translate(-8px,-50%);
+  opacity:0;color:var(--navy);transition:opacity .3s var(--e),transform .34s var(--e)}
+.readout:hover,.readout:focus-visible{transform:translateX(22px)}
+.readout:hover::before,.readout:focus-visible::before{opacity:1;transform:translate(0,-50%)}
+
+/* the contact lines use the same travel, inverted */
+.big{padding-bottom:0;transition:transform .38s var(--e)}
+.big::after{display:none}
+.big::before{
+  content:"\2192";position:absolute;left:-.9em;top:50%;transform:translate(-10px,-50%);
+  opacity:0;font-size:.6em;transition:opacity .3s var(--e),transform .38s var(--e)}
+.big:hover,.big:focus-visible{transform:translateX(.9em)}
+.big:hover::before,.big:focus-visible::before{opacity:.85;transform:translate(0,-50%)}
+
+/* listing rows: the shear plus a register bar growing at the left edge */
+.row::after{
+  left:-16px;bottom:auto;top:50%;width:2px;height:100%;background:var(--navy);
+  transform:translateY(-50%) scaleY(0);transform-origin:50% 50%;
+  transition:transform .45s var(--e)}
+.row:hover::after,.row:focus-visible::after{transform:translateY(-50%) scaleY(.66)}
+
+/* plain inline links: a static underline, no animation, standard affordance */
+.fine .ul,.foot__cols a{transition:color .25s var(--e),border-color .25s var(--e)}
+
+/* ---- CTA garment: the filing tab. A filled shape with a notched corner,
+       not a framed block, so the stamp stays the page's only frame. -------- */
+.tab{
+  position:relative;appearance:none;cursor:pointer;border:0;
+  background:var(--navy);color:var(--paper);
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:14px 22px 14px 18px;
+  clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,0 100%);
+  transition:transform .3s var(--e),background .3s var(--e),clip-path .3s var(--e)}
+.tab:hover{background:#0E3D6C;transform:translateY(-2px);
+  clip-path:polygon(0 0,calc(100% - 19px) 0,100% 19px,100% 100%,0 100%)}
+.tab:active{transform:translateY(0) scale(.985)}
+.tab--stor{padding:18px 34px 18px 28px;font-size:.72rem}
+.tab[disabled]{opacity:.45;cursor:default;transform:none}
+
+/* ---- the form's route in ------------------------------------------------ */
+.sk-inn{margin-top:clamp(30px,3.6vw,44px)}
+.kontakt__cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;
+  margin-top:clamp(30px,4vw,44px)}
+.kontakt__cta .stamp{margin-top:0}
+/* the filing tab, inverted for the navy field */
+.tab--inv{background:var(--paper);color:var(--navy)}
+.tab--inv:hover{background:#FFFFFF}

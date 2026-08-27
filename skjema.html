@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fortell om bedriften | Micke Bernakiewicz, Connecto Bedriftsmegling</title>
+<meta name="description" content="Fyll ut opplysningene om bedriften din. De fleste svarene er ferdige valg du bare trykker p&aring;. Alt behandles konfidensielt.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
+<meta name="theme-color" content="#F2F1EC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="skjema.css">
+</head>
+<body class="skjema-side">
+
+<a class="skip" href="#skjema">Hopp til skjemaet</a>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="index.html" aria-label="Tilbake til Micke Bernakiewicz sin side">
+      <img src="assets/logo.png" alt="Connecto Bedriftsmegling" width="180" height="97">
+    </a>
+    <nav class="nav__links" aria-label="Seksjoner">
+      <a href="index.html">Tilbake til siden</a>
+    </nav>
+    <a class="nav__tel" href="tel:+4791347101"><span class="nav__tel-lbl">Ring</span> 913 47 101</a>
+  </div>
+</header>
+
+<main>
+
+<section class="sec sk-topp" data-sec="00">
+  <div class="wrap">
+    <p class="secno">00<span>Skjema</span></p>
+    <h1>Fortell om bedriften</h1>
+    <p class="lead">De fleste svarene er ferdige valg du bare trykker p&aring;. Skriv navnet p&aring; selskapet,
+      s&aring; henter vi resten. Hopp over alt du ikke vet.</p>
+
+    <div class="sk-lovnad">
+      <p class="sk-lovnad__k">Konfidensielt</p>
+      <p>Opplysningene g&aring;r bare til Micke Bernakiewicz. Ingenting publiseres, og ingen bedrift blir
+        omtalt med navn overfor noen uten at du har godkjent det f&oslash;rst.</p>
+    </div>
+
+    <p class="sk-tid">Tre felt m&aring; fylles ut. Resten tar to minutter, fordi du stort sett bare trykker.
+      Svarene lagres i din egen nettleser underveis.</p>
+  </div>
+</section>
+
+<section class="sec sk-form band" id="skjema" data-sec="01">
+  <div class="wrap">
+
+    <div class="sk-fremdrift">
+      <p class="sk-fremdrift__tekst" id="stegtall">Steg 1 av 5</p>
+      <ol class="sk-rail" id="rail" aria-label="Stegene i skjemaet">
+        <li><button type="button" data-go="0" aria-current="step"><span class="sk-rail__n">1</span><em>Deg</em></button></li>
+        <li><button type="button" data-go="1"><span class="sk-rail__n">2</span><em>Bedriften</em></button></li>
+        <li><button type="button" data-go="2"><span class="sk-rail__n">3</span><em>Tall</em></button></li>
+        <li><button type="button" data-go="3"><span class="sk-rail__n">4</span><em>Planen</em></button></li>
+        <li><button type="button" data-go="4"><span class="sk-rail__n">5</span><em>Se over</em></button></li>
+      </ol>
+      <div class="sk-bar" aria-hidden="true"><span id="barfyll"></span></div>
+    </div>
+
+    <form id="form" novalidate autocomplete="on">
+
+      <!-- 1 --------------------------------------------------------------- -->
+      <fieldset class="sk-steg" data-steg="0">
+        <legend>S&aring; han f&aring;r tak i deg</legend>
+
+        <div class="sk-grid">
+          <div class="f f--wide">
+            <label for="navn">Navn <b>m&aring; fylles ut</b></label>
+            <input id="navn" name="navn" type="text" autocomplete="name" required placeholder="Ola Nordmann">
+            <span class="f__feil" data-feil></span>
+          </div>
+
+          <div class="f f--wide">
+            <span class="f__lbl">Din rolle</span>
+            <div class="chips" role="radiogroup" aria-label="Din rolle">
+              <input type="radio" name="rolle" id="rolle1" value="Eier"><label for="rolle1">Eier</label>
+              <input type="radio" name="rolle" id="rolle2" value="Medeier"><label for="rolle2">Medeier</label>
+              <input type="radio" name="rolle" id="rolle3" value="Daglig leder"><label for="rolle3">Daglig leder</label>
+              <input type="radio" name="rolle" id="rolle4" value="Styreleder"><label for="rolle4">Styreleder</label>
+              <input type="radio" name="rolle" id="rolle5" value="Annet"><label for="rolle5">Annet</label>
+            </div>
+          </div>
+
+          <div class="f">
+            <label for="telefon">Telefon <b>m&aring; fylles ut</b></label>
+            <input id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required placeholder="900 00 000">
+            <span class="f__feil" data-feil></span>
+          </div>
+
+          <div class="f">
+            <label for="epost">E-post <b>m&aring; fylles ut</b></label>
+            <input id="epost" name="epost" type="email" inputmode="email" autocomplete="email" required placeholder="ola@bedriften.no">
+            <span class="f__feil" data-feil></span>
+          </div>
+
+          <div class="f f--wide">
+            <span class="f__lbl">N&aring;r passer det &aring; bli ringt</span>
+            <div class="chips" role="radiogroup" aria-label="N&aring;r passer det &aring; bli ringt">
+              <input type="radio" name="naar" id="naar1" value="N&aring;r som helst" checked><label for="naar1">N&aring;r som helst</label>
+              <input type="radio" name="naar" id="naar2" value="Formiddag"><label for="naar2">Formiddag</label>
+              <input type="radio" name="naar" id="naar3" value="Ettermiddag"><label for="naar3">Ettermiddag</label>
+              <input type="radio" name="naar" id="naar4" value="Etter arbeidstid"><label for="naar4">Etter arbeidstid</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 2 --------------------------------------------------------------- -->
+      <fieldset class="sk-steg" data-steg="1" hidden>
+        <legend>Bedriften</legend>
+        <p class="sk-valgfritt">Alt her er valgfritt</p>
+
+        <div class="sk-grid">
+          <div class="f f--wide sk-sok">
+            <label for="sok">S&oslash;k opp selskapet</label>
+            <div class="sk-sok__boks">
+              <input id="sok" name="sok" type="text" autocomplete="off" role="combobox"
+                     aria-expanded="false" aria-controls="treff" aria-autocomplete="list"
+                     placeholder="Skriv navnet p&aring; selskapet, eller org.nr">
+              <span class="sk-sok__snurr" id="snurr" hidden aria-hidden="true"></span>
+            </div>
+            <ul class="sk-treff" id="treff" role="listbox" aria-label="Treff i Enhetsregisteret" hidden></ul>
+            <span class="f__note" id="soknote">Vi henter navn, bransje, sted, stiftelses&aring;r og antall
+              ansatte fra Enhetsregisteret, s&aring; slipper du &aring; skrive det.</span>
+          </div>
+
+          <div class="f f--wide">
+            <label for="selskap">Selskapsnavn</label>
+            <input id="selskap" name="selskap" type="text" autocomplete="organization">
+            <span class="f__note">La st&aring; tomt hvis du helst vil v&aelig;re anonym i f&oslash;rste omgang.</span>
+          </div>
+
+          <div class="f">
+            <label for="orgnr">Organisasjonsnummer</label>
+            <input id="orgnr" name="orgnr" type="text" inputmode="numeric" maxlength="11" autocomplete="off">
+          </div>
+
+          <div class="f">
+            <label for="sted">Sted</label>
+            <input id="sted" name="sted" type="text" autocomplete="address-level2">
+          </div>
+
+          <div class="f">
+            <label for="bransje">Bransje</label>
+            <input id="bransje" name="bransje" type="text">
+          </div>
+
+          <div class="f">
+            <label for="etablert">Etablert &aring;r</label>
+            <input id="etablert" name="etablert" type="text" inputmode="numeric" maxlength="4" placeholder="1998">
+          </div>
+
+          <div class="f f--wide">
+            <label for="ansatte">Antall ansatte</label>
+            <div class="chips chips--fyll" data-fyll="ansatte">
+              <button type="button" value="1 til 5">1 til 5</button>
+              <button type="button" value="6 til 10">6 til 10</button>
+              <button type="button" value="11 til 25">11 til 25</button>
+              <button type="button" value="26 til 50">26 til 50</button>
+              <button type="button" value="Over 50">Over 50</button>
+            </div>
+            <input id="ansatte" name="ansatte" type="text" placeholder="Eller skriv tallet selv">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 3 --------------------------------------------------------------- -->
+      <fieldset class="sk-steg" data-steg="2" hidden>
+        <legend>Tall</legend>
+        <p class="sk-valgfritt">Alt her er valgfritt, og cirka holder</p>
+
+        <div class="sk-grid">
+          <div class="f f--wide">
+            <label for="omsetning">Omsetning siste &aring;r</label>
+            <div class="chips chips--fyll" data-fyll="omsetning">
+              <button type="button" value="Under 5 MNOK">Under 5 MNOK</button>
+              <button type="button" value="5 til 15 MNOK">5 til 15</button>
+              <button type="button" value="15 til 30 MNOK">15 til 30</button>
+              <button type="button" value="30 til 50 MNOK">30 til 50</button>
+              <button type="button" value="50 til 100 MNOK">50 til 100</button>
+              <button type="button" value="Over 100 MNOK">Over 100</button>
+            </div>
+            <input id="omsetning" name="omsetning" type="text" placeholder="Eller skriv tallet selv">
+          </div>
+
+          <div class="f f--wide">
+            <label for="resultat">Driftsresultat</label>
+            <div class="chips chips--fyll" data-fyll="resultat">
+              <button type="button" value="G&aring;r omtrent i null">G&aring;r i null</button>
+              <button type="button" value="Under 1 MNOK">Under 1 MNOK</button>
+              <button type="button" value="1 til 3 MNOK">1 til 3</button>
+              <button type="button" value="3 til 10 MNOK">3 til 10</button>
+              <button type="button" value="Over 10 MNOK">Over 10</button>
+              <button type="button" value="Vet ikke">Vet ikke</button>
+            </div>
+            <input id="resultat" name="resultat" type="text" placeholder="Eller skriv tallet selv">
+          </div>
+
+          <div class="f f--wide">
+            <span class="f__lbl">Driftsmargin</span>
+            <div class="chips" role="radiogroup" aria-label="Driftsmargin">
+              <input type="radio" name="margin" id="mar1" value="Under 5 %"><label for="mar1">Under 5 %</label>
+              <input type="radio" name="margin" id="mar2" value="5 til 10 %"><label for="mar2">5 til 10 %</label>
+              <input type="radio" name="margin" id="mar3" value="10 til 20 %"><label for="mar3">10 til 20 %</label>
+              <input type="radio" name="margin" id="mar4" value="Over 20 %"><label for="mar4">Over 20 %</label>
+              <input type="radio" name="margin" id="mar5" value="Vet ikke"><label for="mar5">Vet ikke</label>
+            </div>
+          </div>
+
+          <div class="f f--wide">
+            <span class="f__lbl">Lokaler</span>
+            <div class="chips" role="radiogroup" aria-label="Lokaler">
+              <input type="radio" name="lokaler" id="lok1" value="Selskapet eier lokalene"><label for="lok1">Eier lokalene</label>
+              <input type="radio" name="lokaler" id="lok2" value="Selskapet leier lokalene"><label for="lok2">Leier lokalene</label>
+              <input type="radio" name="lokaler" id="lok3" value="Ikke relevant"><label for="lok3">Ikke relevant</label>
+            </div>
+          </div>
+
+          <div class="f f--wide">
+            <span class="f__lbl">Hvem er kundene <i>velg gjerne flere</i></span>
+            <div class="chips" role="group" aria-label="Hvem er kundene">
+              <input type="checkbox" name="kunder" id="kun1" value="Industri"><label for="kun1">Industri</label>
+              <input type="checkbox" name="kunder" id="kun2" value="Bygg og anlegg"><label for="kun2">Bygg og anlegg</label>
+              <input type="checkbox" name="kunder" id="kun3" value="Offentlig sektor"><label for="kun3">Offentlig sektor</label>
+              <input type="checkbox" name="kunder" id="kun4" value="Handel"><label for="kun4">Handel</label>
+              <input type="checkbox" name="kunder" id="kun5" value="Privatpersoner"><label for="kun5">Privatpersoner</label>
+              <input type="checkbox" name="kunder" id="kun6" value="Annet"><label for="kun6">Annet</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 4 --------------------------------------------------------------- -->
+      <fieldset class="sk-steg" data-steg="3" hidden>
+        <legend>Planen</legend>
+        <p class="sk-valgfritt">Alt her er valgfritt</p>
+
+        <div class="sk-grid">
+          <div class="f f--wide">
+            <span class="f__lbl">Hva ser du for deg</span>
+            <div class="chips" role="radiogroup" aria-label="Hva ser du for deg">
+              <input type="radio" name="maal" id="maal1" value="Selge hele selskapet"><label for="maal1">Selge hele selskapet</label>
+              <input type="radio" name="maal" id="maal2" value="Selge en del av selskapet"><label for="maal2">Selge en del</label>
+              <input type="radio" name="maal" id="maal3" value="Hente inn en partner"><label for="maal3">Hente inn en partner</label>
+              <input type="radio" name="maal" id="maal4" value="Generasjonsskifte"><label for="maal4">Generasjonsskifte</label>
+              <input type="radio" name="maal" id="maal5" value="Vet ikke enn&aring;, vil vite hva det er verdt"><label for="maal5">Vil bare vite verdien</label>
+            </div>
+          </div>
+
+          <div class="f f--wide">
+            <span class="f__lbl">Tidshorisont</span>
+            <div class="chips" role="radiogroup" aria-label="Tidshorisont">
+              <input type="radio" name="tid" id="tid1" value="S&aring; snart som mulig"><label for="tid1">S&aring; snart som mulig</label>
+              <input type="radio" name="tid" id="tid2" value="Innen ett &aring;r"><label for="tid2">Innen ett &aring;r</label>
+              <input type="radio" name="tid" id="tid3" value="Om ett til tre &aring;r"><label for="tid3">Om ett til tre &aring;r</label>
+              <input type="radio" name="tid" id="tid4" value="Bare utforsker"><label for="tid4">Bare utforsker</label>
+            </div>
+          </div>
+
+          <div class="f">
+            <span class="f__lbl">Kan du bli en periode etterp&aring;</span>
+            <div class="chips" role="radiogroup" aria-label="Kan du bli en periode etterp&aring;">
+              <input type="radio" name="overgang" id="ov1" value="Ja"><label for="ov1">Ja</label>
+              <input type="radio" name="overgang" id="ov2" value="Kanskje, avhenger av kj&oslash;per"><label for="ov2">Kanskje</label>
+              <input type="radio" name="overgang" id="ov3" value="Nei, jeg vil ut"><label for="ov3">Nei</label>
+            </div>
+          </div>
+
+          <div class="f">
+            <span class="f__lbl">Har noen vist interesse alt</span>
+            <div class="chips" role="radiogroup" aria-label="Har noen vist interesse alt">
+              <input type="radio" name="interesse" id="int1" value="Ja"><label for="int1">Ja</label>
+              <input type="radio" name="interesse" id="int2" value="Nei"><label for="int2">Nei</label>
+              <input type="radio" name="interesse" id="int3" value="Vet ikke"><label for="int3">Vet ikke</label>
+            </div>
+          </div>
+
+          <div class="f f--wide">
+            <span class="f__lbl">Snakket med megler f&oslash;r</span>
+            <div class="chips" role="radiogroup" aria-label="Snakket med megler f&oslash;r">
+              <input type="radio" name="tidligere" id="tg1" value="Nei, dette er f&oslash;rste gang"><label for="tg1">F&oslash;rste gang</label>
+              <input type="radio" name="tidligere" id="tg2" value="Ja, tidligere"><label for="tg2">Ja, tidligere</label>
+              <input type="radio" name="tidligere" id="tg3" value="Ja, snakker med flere n&aring;"><label for="tg3">Snakker med flere n&aring;</label>
+            </div>
+          </div>
+
+          <div class="f f--wide">
+            <label for="viktigst">Hva er viktigst for deg i et salg</label>
+            <div class="chips chips--legg" data-legg="viktigst">
+              <button type="button" value="At de ansatte beholder jobben">At de ansatte beholder jobben</button>
+              <button type="button" value="At navnet og driften lever videre">At navnet lever videre</button>
+              <button type="button" value="H&oslash;yest mulig pris">H&oslash;yest mulig pris</button>
+              <button type="button" value="En rask og ryddig prosess">Rask og ryddig prosess</button>
+              <button type="button" value="At det holdes konfidensielt hele veien">Full konfidensialitet</button>
+              <button type="button" value="At kunderelasjonene videref&oslash;res">At kundene tas vare p&aring;</button>
+            </div>
+            <textarea id="viktigst" name="viktigst" rows="4"
+              placeholder="Trykk p&aring; forslagene over, eller skriv med egne ord."></textarea>
+          </div>
+
+          <div class="f f--wide">
+            <label for="annet">Noe annet Micke b&oslash;r vite</label>
+            <textarea id="annet" name="annet" rows="3"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 5 --------------------------------------------------------------- -->
+      <fieldset class="sk-steg" data-steg="4" hidden>
+        <legend>Se over</legend>
+        <p class="sk-hjelp">Trykk p&aring; et svar for &aring; rette det.</p>
+
+        <div class="sk-oppsum" id="oppsum"></div>
+
+        <div class="sk-samtykke">
+          <input id="samtykke" name="samtykke" type="checkbox" required>
+          <label for="samtykke">
+            Jeg samtykker til at Connecto Bedriftsmegling AS lagrer opplysningene over for &aring; kontakte meg
+            om et mulig salg. Jeg kan n&aring;r som helst be om at de slettes.
+            <a class="ul" href="https://connecto.no/bedriftsmegling/personvern/" target="_blank" rel="noopener">Personvernerkl&aelig;ring</a>
+          </label>
+          <span class="f__feil" data-feil></span>
+        </div>
+      </fieldset>
+
+      <div class="sk-ujs">
+        <p class="sk-ujs__k">Uten JavaScript</p>
+        <p>Nettleseren din kj&oslash;rer ikke JavaScript, og da sender vi ikke skjemaet, fordi
+          opplysningene dine ville havnet synlig i nettadressen. Ring Micke p&aring;
+          <a href="tel:+4791347101">913 47 101</a> eller send det du vil dele til
+          <a href="mailto:micke@connecto.no">micke@connecto.no</a>. Det g&aring;r like bra.</p>
+      </div>
+
+      <div class="sk-nav">
+        <button type="button" class="sk-tilbake" id="tilbake" hidden>Tilbake</button>
+        <div class="sk-nav__hoyre">
+          <p class="sk-lagret" id="lagret" role="status"></p>
+          <button type="button" class="tab tab--stor" id="neste"><span class="tab__l">Neste</span></button>
+          <button type="submit" class="tab tab--stor tab--send" id="send" hidden><span class="tab__l">Send til Micke</span></button>
+        </div>
+      </div>
+
+    </form>
+
+    <div class="sk-kvittering" id="kvittering" hidden>
+      <p class="secno">Sendt<span>Takk</span></p>
+      <h2>Takk. Micke tar kontakt.</h2>
+      <p class="lead">Han ringer normalt innen en virkedag. Haster det, ring 913 47 101 direkte.</p>
+      <div class="sk-kvittering__hva" id="kvitteringHva"></div>
+    </div>
+
+    <p class="fine sk-tom">
+      Vil du begynne p&aring; nytt?
+      <button type="button" class="sk-tomknapp" id="tom">T&oslash;m skjemaet</button>
+    </p>
+
+  </div>
+</section>
+
+<section class="sec kontakt" data-sec="02">
+  <div class="kontakt__rhino" aria-hidden="true"><svg viewBox="0 0 156 78" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true" focusable="false"><path class="rh-ghost" d="M147.00,29.38 134.50,40.12 131.12,38.62 132.12,29.25 125.12,34.00 121.12,32.88 118.25,25.62 119.50,19.00 117.75,16.25 123.62,14.88 127.75,7.62 123.00,7.12 113.00,12.00 116.88,5.38 115.25,0.00 113.25,0.00 109.12,8.88 99.75,3.12 91.12,1.25 68.25,8.38 57.25,7.62 53.62,5.12 35.50,6.00 21.12,22.50 14.75,34.00 11.00,32.12 5.25,36.12 14.00,38.12 20.00,34.00 22.88,39.75 18.88,53.25 20.25,67.50 17.12,70.88 18.25,72.75 32.50,72.50 28.88,66.38 27.75,57.50 36.12,48.25 37.00,52.25 35.25,59.38 42.62,67.25 40.12,70.75 40.75,72.50 49.25,73.25 55.25,71.25 49.12,67.12 46.88,62.00 48.25,50.00 57.50,53.62 73.88,49.00 75.00,64.12 71.25,72.62 85.62,72.50 81.12,65.50 86.25,52.00 96.00,66.38 94.25,71.62 102.38,72.62 108.75,70.38 100.88,64.12 98.50,48.50 104.50,54.75 109.75,57.00 117.25,63.50 122.50,63.12 140.75,45.75 145.62,36.62Z"/><path class="rh-ghost" d="M113.12,26.12 114.00,26.12 114.75,27.12 115.12,31.00 116.25,33.25 115.75,36.62 114.62,39.00 112.00,37.75 110.50,38.25 109.50,39.25 111.00,40.25 111.12,41.50 112.88,42.75 114.88,42.88 115.38,42.50 115.25,41.00 117.38,34.38 119.88,36.12 124.38,41.88 127.25,42.88 133.12,42.50 137.00,40.50 141.25,36.75 142.00,36.75 142.00,37.62 138.88,42.38 134.75,47.00 129.75,50.00 127.38,49.50 126.75,47.38 126.00,47.50 125.75,49.00 126.75,50.88 126.00,54.88 124.62,56.00 123.75,53.25 122.00,52.38 121.38,52.62 120.12,54.38 120.25,55.38 121.88,56.50 120.62,60.25 119.12,59.88 115.38,56.88 111.62,52.00 109.38,51.00 106.38,51.25 104.25,49.88 101.00,46.25 98.88,42.12 98.25,38.00 99.00,37.00 101.50,35.38 105.00,29.75 107.50,28.00 109.25,27.75Z"/><path class="rh-ghost" d="M55.88,10.75 57.50,10.88 60.12,11.62 65.38,11.62 69.50,10.75 70.50,10.75 70.88,11.12 70.88,11.88 70.12,12.88 70.00,14.12 69.12,16.00 69.00,17.62 68.38,19.25 68.38,20.38 68.00,21.62 68.00,30.25 68.38,31.50 68.38,32.62 68.88,33.88 69.12,36.50 70.12,39.50 70.12,40.75 69.75,41.25 68.38,41.00 63.12,41.00 62.50,40.75 60.00,40.75 58.38,40.25 55.62,40.38 53.25,40.00 45.50,40.12 44.62,39.50 44.88,37.75 45.62,36.25 46.00,34.38 46.75,33.25 47.00,32.12 47.75,31.12 47.88,30.12 48.50,29.38 48.88,28.12 49.50,27.38 49.88,26.12 50.50,25.38 50.88,24.12 52.62,21.12 53.00,19.38 53.62,18.62 53.88,16.88 54.75,15.00 55.00,11.88 55.25,11.25Z"/><path class="rh-ghost" d="M49.00,8.00 49.62,8.88 50.00,11.12 50.00,13.25 50.25,14.38 50.00,16.38 46.38,21.75 46.00,22.75 45.25,23.50 44.88,24.62 44.25,25.25 41.88,29.25 41.25,29.88 40.88,30.75 40.12,31.50 40.00,32.00 35.38,37.62 34.88,38.50 34.25,39.00 33.25,39.00 31.12,38.12 27.25,38.00 26.38,37.50 25.62,36.62 24.88,35.12 24.50,32.25 24.50,29.50 24.88,28.38 25.00,26.88 25.62,26.00 26.00,24.62 26.50,24.12 26.88,23.00 27.75,21.88 27.88,21.38 29.75,19.38 30.12,18.62 32.00,16.38 39.12,9.00 44.25,8.88 47.75,7.88Z"/><path class="rh-ghost" d="M86.50,6.38 87.00,6.88 87.12,8.88 87.75,10.88 88.12,14.00 89.00,16.12 89.12,17.25 89.88,18.38 90.12,19.50 93.12,23.50 93.00,27.00 92.00,28.00 90.38,28.12 88.75,29.00 87.38,29.12 86.12,30.00 84.75,30.25 84.00,30.88 83.00,31.12 82.00,31.88 80.50,32.38 79.75,33.00 79.00,33.12 78.12,33.88 77.00,34.25 76.12,35.00 75.25,35.00 74.00,33.25 73.75,32.00 73.00,31.00 72.50,29.50 71.88,28.75 71.50,26.88 71.88,25.38 72.00,23.62 72.88,20.25 72.88,17.12 73.88,12.00 75.75,10.00 76.75,9.62 77.50,9.00 78.88,8.75 80.00,8.12 81.88,7.75 83.88,6.88 85.50,6.75Z"/><path class="rh-ghost" d="M91.62,5.12 92.38,5.12 93.62,5.75 94.75,5.88 95.62,6.62 96.50,6.88 97.25,7.62 98.25,8.00 98.88,8.62 100.00,9.00 101.00,10.00 101.12,10.75 101.75,12.38 101.75,15.25 101.00,18.12 100.62,21.75 100.25,22.50 100.25,26.50 100.38,27.25 100.75,27.88 100.75,28.75 99.75,30.50 98.75,31.38 98.25,31.38 97.88,31.00 97.62,30.38 97.62,28.00 97.12,26.50 96.75,22.38 96.00,20.75 95.62,18.88 95.00,18.12 94.50,16.88 94.00,16.38 93.62,15.62 92.88,14.88 92.75,14.50 91.88,13.62 91.50,12.75 90.88,12.00 90.62,10.62 90.50,6.50 90.88,5.75Z"/><path class="rh-ghost" d="M86.00,35.75 86.88,36.50 87.25,37.38 88.00,38.25 88.12,38.75 88.62,39.38 88.62,39.75 88.12,40.62 88.12,41.38 88.00,41.50 87.88,42.38 87.38,43.00 87.12,43.62 87.12,44.25 87.00,44.38 86.88,45.38 86.25,46.25 85.88,47.50 85.12,48.25 84.88,49.25 84.12,50.12 83.88,50.88 83.25,51.50 82.88,52.75 82.38,53.12 81.50,53.12 81.12,52.88 80.00,51.62 80.00,51.50 79.12,50.62 78.50,49.62 76.88,47.88 76.88,47.50 76.75,47.38 76.75,46.38 76.88,46.25 76.75,46.00 76.75,45.38 76.88,45.25 76.88,44.62 76.75,44.50 76.75,43.88 76.50,43.38 76.62,41.00 76.12,39.50 76.12,39.00 76.88,37.50 77.38,37.00 77.75,36.88 80.88,36.75 82.38,36.25 82.75,36.25 83.25,36.00 83.75,36.00 84.50,35.75Z"/><path class="rh-ghost" d="M32.88,42.00 33.25,42.75 33.75,43.25 33.75,43.75 33.25,44.25 33.00,45.00 32.25,46.00 31.88,47.00 31.25,47.62 31.00,48.50 29.75,49.88 28.88,50.25 28.25,50.88 27.88,51.00 27.25,50.88 26.88,50.38 27.00,48.88 26.88,48.75 26.75,45.88 26.50,45.12 26.12,44.75 25.75,44.88 25.75,45.75 26.00,46.12 25.88,48.00 26.00,48.12 26.00,50.38 26.25,50.88 26.25,51.88 26.00,52.38 24.00,54.25 21.75,57.00 21.00,57.00 19.88,55.62 19.75,55.25 19.88,54.00 20.75,52.00 20.88,50.88 21.62,49.75 21.88,48.12 22.62,47.00 23.00,45.38 23.75,43.75 23.75,43.12 24.00,42.38 24.25,42.12 24.88,42.25 25.50,43.25 25.62,43.88 26.00,44.00 26.12,43.38 25.75,42.62 25.75,41.62 25.88,41.50 25.88,40.62 26.38,40.00 26.62,39.88 30.50,39.88Z"/><path class="rh-ghost" d="M48.38,44.25 48.88,43.88 51.25,43.88 51.38,44.00 51.88,44.00 52.00,44.12 52.50,44.12 52.62,44.25 53.62,44.25 53.75,44.38 54.00,44.38 54.50,44.62 54.88,44.62 55.00,44.75 56.50,44.75 56.62,44.88 57.25,44.88 57.38,45.00 57.75,45.00 57.88,45.12 58.50,45.25 58.88,45.50 59.12,45.50 59.62,45.75 61.12,45.88 61.25,46.00 61.88,46.12 62.62,46.62 63.38,46.75 63.50,46.88 64.00,46.88 64.88,47.38 65.50,48.00 65.62,48.50 65.12,49.00 64.88,49.00 64.75,49.12 64.25,49.25 63.62,49.88 63.38,50.00 54.50,50.00 54.25,49.88 53.75,49.25 53.00,48.88 52.38,48.12 52.25,48.12 51.25,47.12 51.12,47.12 50.38,46.38 50.25,46.38 49.62,45.75 49.50,45.50 49.38,45.50 48.88,45.00 48.75,45.00 48.38,44.62Z"/><path class="rh-ghost" d="M107.50,12.00 107.75,12.00 107.88,11.88 108.50,12.00 109.12,12.62 109.25,12.62 109.62,12.88 110.12,12.88 110.25,13.00 110.50,13.00 111.38,13.50 111.75,13.50 111.88,13.62 113.12,13.62 113.25,13.50 114.00,13.50 114.12,13.38 114.38,13.38 114.75,13.12 115.00,13.12 115.12,13.00 115.62,13.00 115.75,12.88 116.12,12.88 116.25,13.00 116.50,13.00 116.62,13.12 116.62,13.50 116.25,14.00 116.25,14.12 116.00,14.50 116.00,14.88 115.88,15.00 115.88,15.25 115.38,15.75 115.38,15.88 115.12,16.25 115.12,16.62 115.00,16.75 114.88,17.38 114.50,17.75 114.50,17.88 114.12,18.38 114.12,18.75 114.00,18.88 114.00,19.25 112.88,20.75 112.75,20.75 112.62,20.88 112.00,20.88 111.88,20.75 111.75,20.75 111.25,20.25 111.12,20.25 111.00,20.12 110.75,20.12 110.62,20.00 110.38,20.00 109.88,19.50 109.62,18.88 109.38,18.62 109.38,18.50 109.12,18.25 109.12,18.12 108.88,17.75 108.88,17.25 108.75,17.12 108.75,16.62 108.62,16.50 108.62,16.25 108.00,15.38 108.00,15.12 107.88,15.00 107.88,14.50 107.75,14.38 107.75,13.88 107.62,13.75 107.50,13.38 107.12,12.88 107.12,12.38Z"/><path class="rh-ghost" d="M94.62,29.38 94.62,30.00 94.38,30.38 94.38,30.62 94.25,30.75 94.25,31.25 94.12,31.38 94.12,32.62 94.00,32.75 94.00,33.50 93.88,33.62 93.88,33.75 93.50,34.12 93.50,34.25 93.12,34.62 93.12,34.75 92.62,35.25 92.50,35.25 92.38,35.38 91.88,35.38 91.75,35.25 91.38,35.25 91.25,35.12 90.50,35.12 90.38,35.00 89.75,35.00 89.62,34.88 89.38,34.88 89.25,34.75 89.00,34.75 88.75,34.50 88.62,34.50 88.25,34.25 87.88,34.25 87.75,34.12 86.38,34.12 85.88,33.62 85.88,33.25 86.25,32.88 86.38,32.88 86.75,32.62 87.00,32.62 87.25,32.38 87.38,32.38 87.75,32.00 87.88,32.00 88.00,31.88 88.25,31.88 88.38,31.75 88.75,31.75 89.00,31.50 89.12,31.50 89.62,31.00 89.75,31.00 89.88,30.88 90.25,30.88 90.38,30.75 90.62,30.75 91.38,30.00 91.50,30.00 91.62,29.88 92.00,29.88 92.12,29.75 92.38,29.75 92.50,29.62 92.88,29.50 93.25,29.12 93.38,29.12 93.50,29.00 94.12,29.00 94.25,29.12 94.38,29.12Z"/><path class="rh-ghost" d="M103.88,15.12 104.88,16.12 104.88,16.38 105.00,16.50 105.00,16.75 105.12,16.88 105.12,17.12 105.25,17.25 105.25,17.38 105.38,17.50 105.38,17.62 105.88,18.12 105.88,18.25 106.00,18.38 106.00,18.75 106.12,18.88 106.12,19.25 106.25,19.38 106.25,19.50 106.38,19.62 106.38,19.75 106.62,20.00 106.62,20.12 106.88,20.38 106.88,20.50 107.00,20.62 107.00,21.50 106.50,22.00 106.25,22.00 106.12,22.12 105.75,22.12 105.62,22.25 105.50,22.25 105.38,22.38 105.25,22.38 104.75,22.88 104.62,22.88 104.50,23.00 104.25,23.00 104.12,23.12 103.88,23.12 103.75,23.25 103.62,23.25 103.50,23.38 103.50,23.50 103.12,23.88 103.00,23.88 102.88,24.00 102.00,24.00 101.62,23.62 101.62,23.50 101.50,23.38 101.50,22.75 101.62,22.62 101.62,22.38 101.75,22.25 101.75,21.88 101.88,21.75 101.88,19.12 102.00,19.00 102.00,18.38 102.12,18.25 102.12,17.75 102.25,17.62 102.25,17.38 102.50,17.12 102.50,17.00 102.75,16.75 102.75,16.38 102.88,16.25 102.88,15.88 103.00,15.75 103.00,15.62 103.12,15.50 103.12,15.38 103.50,15.12Z"/><path class="rh-ghost" d="M130.62,31.75 131.00,32.12 131.00,33.25 130.88,33.38 130.88,33.75 130.75,33.88 130.75,34.12 130.62,34.25 130.62,34.50 130.38,34.75 130.38,35.00 130.25,35.12 130.25,35.38 130.12,35.50 130.12,36.00 130.00,36.12 130.00,36.25 129.88,36.38 129.88,36.50 129.25,37.12 129.25,37.25 129.12,37.38 129.12,37.50 129.00,37.62 129.00,37.75 128.62,38.12 128.50,38.12 128.12,38.50 128.12,38.62 127.88,38.88 127.75,38.88 127.38,39.12 126.88,39.12 126.75,39.25 126.25,39.25 126.12,39.12 125.88,39.12 125.75,39.00 125.62,39.00 125.50,38.88 125.38,38.88 125.00,38.50 125.00,38.38 124.88,38.25 124.88,38.12 124.75,38.00 124.75,37.88 124.50,37.62 124.50,37.50 124.12,37.25 124.12,37.12 123.88,36.75 123.88,36.38 124.00,36.25 124.00,36.12 124.50,35.62 124.75,35.62 125.50,35.12 125.75,35.12 125.88,35.00 126.12,35.00 126.25,34.88 126.50,34.88 126.62,34.75 126.75,34.75 127.50,34.00 127.62,34.00 127.88,33.75 128.00,33.75 128.25,33.50 128.38,33.50 128.38,33.38 129.25,32.50 129.38,32.50 129.38,32.38 129.88,31.88 130.00,31.88 130.12,31.75Z"/><path class="rh-ghost" d="M77.12,50.75 77.38,50.75 77.50,50.88 77.62,50.88 78.25,51.50 78.25,51.62 80.38,53.75 80.38,53.88 80.50,53.88 80.62,54.00 80.62,54.12 80.88,54.38 80.88,55.00 80.50,55.38 80.50,55.50 80.12,55.88 80.12,56.00 80.00,56.12 80.00,56.25 79.88,56.38 79.88,56.50 79.12,57.25 79.12,57.38 79.00,57.50 79.00,57.62 78.25,58.38 78.25,58.50 78.12,58.62 78.12,58.75 77.75,59.12 77.62,59.12 77.50,59.25 76.88,59.25 76.62,59.00 76.62,58.88 76.50,58.75 76.50,53.25 76.62,53.12 76.62,52.50 76.50,52.38 76.50,51.38 76.62,51.25 76.62,51.12 76.88,50.88 77.00,50.88Z"/><path class="rh-draw" d="M147.00,29.38 134.50,40.12 131.12,38.62 132.12,29.25 125.12,34.00 121.12,32.88 118.25,25.62 119.50,19.00 117.75,16.25 123.62,14.88 127.75,7.62 123.00,7.12 113.00,12.00 116.88,5.38 115.25,0.00 113.25,0.00 109.12,8.88 99.75,3.12 91.12,1.25 68.25,8.38 57.25,7.62 53.62,5.12 35.50,6.00 21.12,22.50 14.75,34.00 11.00,32.12 5.25,36.12 14.00,38.12 20.00,34.00 22.88,39.75 18.88,53.25 20.25,67.50 17.12,70.88 18.25,72.75 32.50,72.50 28.88,66.38 27.75,57.50 36.12,48.25 37.00,52.25 35.25,59.38 42.62,67.25 40.12,70.75 40.75,72.50 49.25,73.25 55.25,71.25 49.12,67.12 46.88,62.00 48.25,50.00 57.50,53.62 73.88,49.00 75.00,64.12 71.25,72.62 85.62,72.50 81.12,65.50 86.25,52.00 96.00,66.38 94.25,71.62 102.38,72.62 108.75,70.38 100.88,64.12 98.50,48.50 104.50,54.75 109.75,57.00 117.25,63.50 122.50,63.12 140.75,45.75 145.62,36.62Z"/><path class="rh-draw" d="M113.12,26.12 114.00,26.12 114.75,27.12 115.12,31.00 116.25,33.25 115.75,36.62 114.62,39.00 112.00,37.75 110.50,38.25 109.50,39.25 111.00,40.25 111.12,41.50 112.88,42.75 114.88,42.88 115.38,42.50 115.25,41.00 117.38,34.38 119.88,36.12 124.38,41.88 127.25,42.88 133.12,42.50 137.00,40.50 141.25,36.75 142.00,36.75 142.00,37.62 138.88,42.38 134.75,47.00 129.75,50.00 127.38,49.50 126.75,47.38 126.00,47.50 125.75,49.00 126.75,50.88 126.00,54.88 124.62,56.00 123.75,53.25 122.00,52.38 121.38,52.62 120.12,54.38 120.25,55.38 121.88,56.50 120.62,60.25 119.12,59.88 115.38,56.88 111.62,52.00 109.38,51.00 106.38,51.25 104.25,49.88 101.00,46.25 98.88,42.12 98.25,38.00 99.00,37.00 101.50,35.38 105.00,29.75 107.50,28.00 109.25,27.75Z"/><path class="rh-draw" d="M55.88,10.75 57.50,10.88 60.12,11.62 65.38,11.62 69.50,10.75 70.50,10.75 70.88,11.12 70.88,11.88 70.12,12.88 70.00,14.12 69.12,16.00 69.00,17.62 68.38,19.25 68.38,20.38 68.00,21.62 68.00,30.25 68.38,31.50 68.38,32.62 68.88,33.88 69.12,36.50 70.12,39.50 70.12,40.75 69.75,41.25 68.38,41.00 63.12,41.00 62.50,40.75 60.00,40.75 58.38,40.25 55.62,40.38 53.25,40.00 45.50,40.12 44.62,39.50 44.88,37.75 45.62,36.25 46.00,34.38 46.75,33.25 47.00,32.12 47.75,31.12 47.88,30.12 48.50,29.38 48.88,28.12 49.50,27.38 49.88,26.12 50.50,25.38 50.88,24.12 52.62,21.12 53.00,19.38 53.62,18.62 53.88,16.88 54.75,15.00 55.00,11.88 55.25,11.25Z"/><path class="rh-draw" d="M49.00,8.00 49.62,8.88 50.00,11.12 50.00,13.25 50.25,14.38 50.00,16.38 46.38,21.75 46.00,22.75 45.25,23.50 44.88,24.62 44.25,25.25 41.88,29.25 41.25,29.88 40.88,30.75 40.12,31.50 40.00,32.00 35.38,37.62 34.88,38.50 34.25,39.00 33.25,39.00 31.12,38.12 27.25,38.00 26.38,37.50 25.62,36.62 24.88,35.12 24.50,32.25 24.50,29.50 24.88,28.38 25.00,26.88 25.62,26.00 26.00,24.62 26.50,24.12 26.88,23.00 27.75,21.88 27.88,21.38 29.75,19.38 30.12,18.62 32.00,16.38 39.12,9.00 44.25,8.88 47.75,7.88Z"/><path class="rh-draw" d="M86.50,6.38 87.00,6.88 87.12,8.88 87.75,10.88 88.12,14.00 89.00,16.12 89.12,17.25 89.88,18.38 90.12,19.50 93.12,23.50 93.00,27.00 92.00,28.00 90.38,28.12 88.75,29.00 87.38,29.12 86.12,30.00 84.75,30.25 84.00,30.88 83.00,31.12 82.00,31.88 80.50,32.38 79.75,33.00 79.00,33.12 78.12,33.88 77.00,34.25 76.12,35.00 75.25,35.00 74.00,33.25 73.75,32.00 73.00,31.00 72.50,29.50 71.88,28.75 71.50,26.88 71.88,25.38 72.00,23.62 72.88,20.25 72.88,17.12 73.88,12.00 75.75,10.00 76.75,9.62 77.50,9.00 78.88,8.75 80.00,8.12 81.88,7.75 83.88,6.88 85.50,6.75Z"/><path class="rh-draw" d="M91.62,5.12 92.38,5.12 93.62,5.75 94.75,5.88 95.62,6.62 96.50,6.88 97.25,7.62 98.25,8.00 98.88,8.62 100.00,9.00 101.00,10.00 101.12,10.75 101.75,12.38 101.75,15.25 101.00,18.12 100.62,21.75 100.25,22.50 100.25,26.50 100.38,27.25 100.75,27.88 100.75,28.75 99.75,30.50 98.75,31.38 98.25,31.38 97.88,31.00 97.62,30.38 97.62,28.00 97.12,26.50 96.75,22.38 96.00,20.75 95.62,18.88 95.00,18.12 94.50,16.88 94.00,16.38 93.62,15.62 92.88,14.88 92.75,14.50 91.88,13.62 91.50,12.75 90.88,12.00 90.62,10.62 90.50,6.50 90.88,5.75Z"/><path class="rh-draw" d="M86.00,35.75 86.88,36.50 87.25,37.38 88.00,38.25 88.12,38.75 88.62,39.38 88.62,39.75 88.12,40.62 88.12,41.38 88.00,41.50 87.88,42.38 87.38,43.00 87.12,43.62 87.12,44.25 87.00,44.38 86.88,45.38 86.25,46.25 85.88,47.50 85.12,48.25 84.88,49.25 84.12,50.12 83.88,50.88 83.25,51.50 82.88,52.75 82.38,53.12 81.50,53.12 81.12,52.88 80.00,51.62 80.00,51.50 79.12,50.62 78.50,49.62 76.88,47.88 76.88,47.50 76.75,47.38 76.75,46.38 76.88,46.25 76.75,46.00 76.75,45.38 76.88,45.25 76.88,44.62 76.75,44.50 76.75,43.88 76.50,43.38 76.62,41.00 76.12,39.50 76.12,39.00 76.88,37.50 77.38,37.00 77.75,36.88 80.88,36.75 82.38,36.25 82.75,36.25 83.25,36.00 83.75,36.00 84.50,35.75Z"/><path class="rh-draw" d="M32.88,42.00 33.25,42.75 33.75,43.25 33.75,43.75 33.25,44.25 33.00,45.00 32.25,46.00 31.88,47.00 31.25,47.62 31.00,48.50 29.75,49.88 28.88,50.25 28.25,50.88 27.88,51.00 27.25,50.88 26.88,50.38 27.00,48.88 26.88,48.75 26.75,45.88 26.50,45.12 26.12,44.75 25.75,44.88 25.75,45.75 26.00,46.12 25.88,48.00 26.00,48.12 26.00,50.38 26.25,50.88 26.25,51.88 26.00,52.38 24.00,54.25 21.75,57.00 21.00,57.00 19.88,55.62 19.75,55.25 19.88,54.00 20.75,52.00 20.88,50.88 21.62,49.75 21.88,48.12 22.62,47.00 23.00,45.38 23.75,43.75 23.75,43.12 24.00,42.38 24.25,42.12 24.88,42.25 25.50,43.25 25.62,43.88 26.00,44.00 26.12,43.38 25.75,42.62 25.75,41.62 25.88,41.50 25.88,40.62 26.38,40.00 26.62,39.88 30.50,39.88Z"/><path class="rh-draw" d="M48.38,44.25 48.88,43.88 51.25,43.88 51.38,44.00 51.88,44.00 52.00,44.12 52.50,44.12 52.62,44.25 53.62,44.25 53.75,44.38 54.00,44.38 54.50,44.62 54.88,44.62 55.00,44.75 56.50,44.75 56.62,44.88 57.25,44.88 57.38,45.00 57.75,45.00 57.88,45.12 58.50,45.25 58.88,45.50 59.12,45.50 59.62,45.75 61.12,45.88 61.25,46.00 61.88,46.12 62.62,46.62 63.38,46.75 63.50,46.88 64.00,46.88 64.88,47.38 65.50,48.00 65.62,48.50 65.12,49.00 64.88,49.00 64.75,49.12 64.25,49.25 63.62,49.88 63.38,50.00 54.50,50.00 54.25,49.88 53.75,49.25 53.00,48.88 52.38,48.12 52.25,48.12 51.25,47.12 51.12,47.12 50.38,46.38 50.25,46.38 49.62,45.75 49.50,45.50 49.38,45.50 48.88,45.00 48.75,45.00 48.38,44.62Z"/><path class="rh-draw" d="M107.50,12.00 107.75,12.00 107.88,11.88 108.50,12.00 109.12,12.62 109.25,12.62 109.62,12.88 110.12,12.88 110.25,13.00 110.50,13.00 111.38,13.50 111.75,13.50 111.88,13.62 113.12,13.62 113.25,13.50 114.00,13.50 114.12,13.38 114.38,13.38 114.75,13.12 115.00,13.12 115.12,13.00 115.62,13.00 115.75,12.88 116.12,12.88 116.25,13.00 116.50,13.00 116.62,13.12 116.62,13.50 116.25,14.00 116.25,14.12 116.00,14.50 116.00,14.88 115.88,15.00 115.88,15.25 115.38,15.75 115.38,15.88 115.12,16.25 115.12,16.62 115.00,16.75 114.88,17.38 114.50,17.75 114.50,17.88 114.12,18.38 114.12,18.75 114.00,18.88 114.00,19.25 112.88,20.75 112.75,20.75 112.62,20.88 112.00,20.88 111.88,20.75 111.75,20.75 111.25,20.25 111.12,20.25 111.00,20.12 110.75,20.12 110.62,20.00 110.38,20.00 109.88,19.50 109.62,18.88 109.38,18.62 109.38,18.50 109.12,18.25 109.12,18.12 108.88,17.75 108.88,17.25 108.75,17.12 108.75,16.62 108.62,16.50 108.62,16.25 108.00,15.38 108.00,15.12 107.88,15.00 107.88,14.50 107.75,14.38 107.75,13.88 107.62,13.75 107.50,13.38 107.12,12.88 107.12,12.38Z"/><path class="rh-draw" d="M94.62,29.38 94.62,30.00 94.38,30.38 94.38,30.62 94.25,30.75 94.25,31.25 94.12,31.38 94.12,32.62 94.00,32.75 94.00,33.50 93.88,33.62 93.88,33.75 93.50,34.12 93.50,34.25 93.12,34.62 93.12,34.75 92.62,35.25 92.50,35.25 92.38,35.38 91.88,35.38 91.75,35.25 91.38,35.25 91.25,35.12 90.50,35.12 90.38,35.00 89.75,35.00 89.62,34.88 89.38,34.88 89.25,34.75 89.00,34.75 88.75,34.50 88.62,34.50 88.25,34.25 87.88,34.25 87.75,34.12 86.38,34.12 85.88,33.62 85.88,33.25 86.25,32.88 86.38,32.88 86.75,32.62 87.00,32.62 87.25,32.38 87.38,32.38 87.75,32.00 87.88,32.00 88.00,31.88 88.25,31.88 88.38,31.75 88.75,31.75 89.00,31.50 89.12,31.50 89.62,31.00 89.75,31.00 89.88,30.88 90.25,30.88 90.38,30.75 90.62,30.75 91.38,30.00 91.50,30.00 91.62,29.88 92.00,29.88 92.12,29.75 92.38,29.75 92.50,29.62 92.88,29.50 93.25,29.12 93.38,29.12 93.50,29.00 94.12,29.00 94.25,29.12 94.38,29.12Z"/><path class="rh-draw" d="M103.88,15.12 104.88,16.12 104.88,16.38 105.00,16.50 105.00,16.75 105.12,16.88 105.12,17.12 105.25,17.25 105.25,17.38 105.38,17.50 105.38,17.62 105.88,18.12 105.88,18.25 106.00,18.38 106.00,18.75 106.12,18.88 106.12,19.25 106.25,19.38 106.25,19.50 106.38,19.62 106.38,19.75 106.62,20.00 106.62,20.12 106.88,20.38 106.88,20.50 107.00,20.62 107.00,21.50 106.50,22.00 106.25,22.00 106.12,22.12 105.75,22.12 105.62,22.25 105.50,22.25 105.38,22.38 105.25,22.38 104.75,22.88 104.62,22.88 104.50,23.00 104.25,23.00 104.12,23.12 103.88,23.12 103.75,23.25 103.62,23.25 103.50,23.38 103.50,23.50 103.12,23.88 103.00,23.88 102.88,24.00 102.00,24.00 101.62,23.62 101.62,23.50 101.50,23.38 101.50,22.75 101.62,22.62 101.62,22.38 101.75,22.25 101.75,21.88 101.88,21.75 101.88,19.12 102.00,19.00 102.00,18.38 102.12,18.25 102.12,17.75 102.25,17.62 102.25,17.38 102.50,17.12 102.50,17.00 102.75,16.75 102.75,16.38 102.88,16.25 102.88,15.88 103.00,15.75 103.00,15.62 103.12,15.50 103.12,15.38 103.50,15.12Z"/><path class="rh-draw" d="M130.62,31.75 131.00,32.12 131.00,33.25 130.88,33.38 130.88,33.75 130.75,33.88 130.75,34.12 130.62,34.25 130.62,34.50 130.38,34.75 130.38,35.00 130.25,35.12 130.25,35.38 130.12,35.50 130.12,36.00 130.00,36.12 130.00,36.25 129.88,36.38 129.88,36.50 129.25,37.12 129.25,37.25 129.12,37.38 129.12,37.50 129.00,37.62 129.00,37.75 128.62,38.12 128.50,38.12 128.12,38.50 128.12,38.62 127.88,38.88 127.75,38.88 127.38,39.12 126.88,39.12 126.75,39.25 126.25,39.25 126.12,39.12 125.88,39.12 125.75,39.00 125.62,39.00 125.50,38.88 125.38,38.88 125.00,38.50 125.00,38.38 124.88,38.25 124.88,38.12 124.75,38.00 124.75,37.88 124.50,37.62 124.50,37.50 124.12,37.25 124.12,37.12 123.88,36.75 123.88,36.38 124.00,36.25 124.00,36.12 124.50,35.62 124.75,35.62 125.50,35.12 125.75,35.12 125.88,35.00 126.12,35.00 126.25,34.88 126.50,34.88 126.62,34.75 126.75,34.75 127.50,34.00 127.62,34.00 127.88,33.75 128.00,33.75 128.25,33.50 128.38,33.50 128.38,33.38 129.25,32.50 129.38,32.50 129.38,32.38 129.88,31.88 130.00,31.88 130.12,31.75Z"/><path class="rh-draw" d="M77.12,50.75 77.38,50.75 77.50,50.88 77.62,50.88 78.25,51.50 78.25,51.62 80.38,53.75 80.38,53.88 80.50,53.88 80.62,54.00 80.62,54.12 80.88,54.38 80.88,55.00 80.50,55.38 80.50,55.50 80.12,55.88 80.12,56.00 80.00,56.12 80.00,56.25 79.88,56.38 79.88,56.50 79.12,57.25 79.12,57.38 79.00,57.50 79.00,57.62 78.25,58.38 78.25,58.50 78.12,58.62 78.12,58.75 77.75,59.12 77.62,59.12 77.50,59.25 76.88,59.25 76.62,59.00 76.62,58.88 76.50,58.75 76.50,53.25 76.62,53.12 76.62,52.50 76.50,52.38 76.50,51.38 76.62,51.25 76.62,51.12 76.88,50.88 77.00,50.88Z"/></svg></div>
+  <div class="wrap kontakt__wrap">
+    <p class="secno secno--inv">07<span>Kontakt</span></p>
+    <h2 class="kontakt__h">Vil du heller bare ringe</h2>
+    <p class="kontakt__sub">Det g&aring;r like bra. F&oslash;rste samtale er gratis og uforpliktende.</p>
+    <div class="kontakt__lines">
+      <a class="big" href="tel:+4791347101">913 47 101</a>
+      <a class="big big--sm" href="mailto:micke@connecto.no">micke@connecto.no</a>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <img class="foot__logo" src="assets/logo-paper.png" alt="Connecto Bedriftsmegling" width="180" height="97">
+      <div class="foot__cols">
+        <div>
+          <p class="foot__k">Connecto Bedriftsmegling AS</p>
+          <p>Slemdalsveien 70, 0370 Oslo</p>
+          <p>Org. 987 314 311</p>
+        </div>
+        <div>
+          <p class="foot__k">Sentralbord</p>
+          <p><a href="tel:+4722830400">22 83 04 00</a></p>
+          <p><a href="mailto:bedriftsmegling@connecto.no">bedriftsmegling@connecto.no</a></p>
+        </div>
+        <div>
+          <p class="foot__k">Mer hos Connecto</p>
+          <p><a href="index.html">Om Micke</a></p>
+          <p><a href="https://connecto.no/selge-bedrift/">Selge bedrift</a></p>
+          <p><a href="https://connecto.no/bedriftsmegling/personvern/">Personvern</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</section>
+
+</main>
+
+<script src="skjema.js"></script>
+</body>
+</html>

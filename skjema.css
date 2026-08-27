@@ -1,0 +1,241 @@
+/* Skjema. Same ink and same sheet as the profile page, but a form is a tool,
+   not a document: fields get real surfaces you can see, labels are set in plain
+   sentence case at readable size, and every answer that can be a button is one.
+   The profile page's hairline-only rule is deliberately set aside here. */
+
+.skjema-side .sk-topp{padding-bottom:clamp(38px,4.6vw,62px)}
+.skjema-side .sk-form{padding-top:clamp(48px,5.6vw,80px);scroll-margin-top:90px}
+.skjema-side h1{font-size:clamp(2.4rem,5.6vw,4.1rem);font-weight:500;
+  letter-spacing:-.045em;line-height:.95;margin-bottom:clamp(20px,2.6vw,30px)}
+
+/* the confidentiality promise, the first thing a seller looks for */
+.sk-lovnad{margin-top:clamp(30px,3.6vw,44px);border-left:3px solid var(--navy);
+  padding:4px 0 4px 22px;max-width:62ch}
+.sk-lovnad__k{font-family:var(--mono);font-size:.7rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+.sk-lovnad p:last-child{line-height:1.7;color:rgba(20,36,58,.88)}
+.sk-tid{margin-top:24px;font-size:.92rem;color:rgba(20,36,58,.72);line-height:1.7;max-width:62ch}
+
+/* ---- progress ---------------------------------------------------------- */
+.sk-fremdrift{margin-bottom:clamp(34px,4vw,50px)}
+.sk-fremdrift__tekst{font-family:var(--mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:14px}
+
+.sk-rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:8px}
+.sk-rail li{display:block}
+.sk-rail button{
+  width:100%;appearance:none;cursor:pointer;text-align:left;
+  background:#FFFFFF;border:1px solid rgba(20,36,58,.2);
+  padding:13px 12px 15px;display:flex;flex-direction:column;gap:8px;
+  transition:border-color .2s var(--e),background .2s var(--e),color .2s var(--e)}
+.sk-rail__n{display:grid;place-items:center;width:24px;height:24px;flex:0 0 auto;
+  border:1px solid rgba(20,36,58,.3);
+  font-family:var(--mono);font-size:.74rem;line-height:1;color:var(--ink);
+  transition:background .2s var(--e),border-color .2s var(--e),color .2s var(--e)}
+.sk-rail button em{font-style:normal;font-size:.9rem;font-weight:500;
+  letter-spacing:-.014em;color:var(--ink);line-height:1.2}
+.sk-rail button:hover{border-color:var(--navy)}
+.sk-rail button:hover .sk-rail__n{border-color:var(--navy);color:var(--navy)}
+.sk-rail button[aria-current="step"]{background:var(--navy);border-color:var(--navy)}
+.sk-rail button[aria-current="step"] em{color:var(--paper)}
+.sk-rail button[aria-current="step"] .sk-rail__n{background:var(--paper);
+  border-color:var(--paper);color:var(--navy)}
+.sk-rail button[data-ferdig="ja"] .sk-rail__n{background:var(--navy);
+  border-color:var(--navy);color:var(--paper);font-size:0}
+.sk-rail button[data-ferdig="ja"] .sk-rail__n::after{content:"\2713";font-size:.8rem}
+
+.sk-bar{height:4px;background:rgba(20,36,58,.14);margin-top:16px}
+.sk-bar span{display:block;height:100%;width:100%;background:var(--navy);
+  transform:scaleX(var(--p,.2));transform-origin:0 50%;transition:transform .5s var(--e)}
+
+/* ---- fieldsets --------------------------------------------------------- */
+.sk-steg{border:0;padding:0;margin:0 0 clamp(28px,3.4vw,40px)}
+.sk-steg legend{padding:0;margin-bottom:10px;
+  font-size:clamp(1.5rem,3vw,2.3rem);font-weight:500;letter-spacing:-.032em;
+  line-height:1.08;color:var(--ink)}
+.sk-valgfritt{display:inline-block;margin:0 0 clamp(26px,3vw,36px);
+  font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--navy);
+  border:1px solid rgba(19,79,137,.4);padding:7px 12px}
+.sk-hjelp{margin:0 0 clamp(24px,3vw,34px);max-width:58ch;
+  font-size:.98rem;line-height:1.7;color:rgba(20,36,58,.78)}
+
+.sk-grid{display:grid;grid-template-columns:1fr;gap:clamp(26px,3.2vw,36px) clamp(24px,3vw,32px)}
+@media(min-width:760px){
+  .sk-grid{grid-template-columns:1fr 1fr}
+  .f--wide{grid-column:1 / -1}
+}
+
+/* ---- fields: real surfaces, readable labels ---------------------------- */
+.f{display:flex;flex-direction:column;gap:10px;min-width:0}
+.f label,.f__lbl{font-family:var(--sans);font-size:.98rem;font-weight:500;
+  letter-spacing:-.012em;text-transform:none;color:var(--ink);line-height:1.4;
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.f label b,.f__lbl b{font-family:var(--mono);font-size:.62rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--navy);
+  border:1px solid rgba(19,79,137,.4);padding:3px 7px}
+.f__lbl i{font-style:normal;font-size:.86rem;font-weight:400;color:rgba(20,36,58,.65)}
+
+.f input[type="text"],.f input[type="tel"],.f input[type="email"],.f textarea{
+  font-family:var(--sans);font-size:1.05rem;letter-spacing:-.012em;color:var(--ink);
+  background:#FFFFFF;border:1px solid rgba(20,36,58,.26);border-radius:0;
+  padding:14px 16px;width:100%;min-height:54px;appearance:none;
+  transition:border-color .2s var(--e),box-shadow .2s var(--e)}
+.f textarea{line-height:1.6;resize:vertical;min-height:112px}
+.f input::placeholder,.f textarea::placeholder{color:rgba(20,36,58,.48)}
+.f input:hover,.f textarea:hover{border-color:rgba(20,36,58,.5)}
+.f input:focus,.f textarea:focus{
+  outline:none;border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+
+.f__note{font-size:.88rem;color:rgba(20,36,58,.72);line-height:1.6}
+.f__feil{font-family:var(--sans);font-size:.9rem;font-weight:500;color:#9B2C2C;
+  line-height:1.5;display:flex;align-items:center;gap:8px}
+.f__feil:not(:empty)::before{content:"!";display:grid;place-items:center;
+  width:19px;height:19px;flex:0 0 auto;background:#9B2C2C;color:#FFFFFF;
+  font-family:var(--mono);font-size:.72rem;line-height:1}
+.f--feil input,.f--feil textarea{border-color:#9B2C2C;box-shadow:inset 0 0 0 1px #9B2C2C}
+
+/* ---- chips: an answer you tap instead of type -------------------------- */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips input{position:absolute;opacity:0;width:1px;height:1px;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0)}
+.chips label,.chips button{
+  display:inline-flex;align-items:center;min-height:48px;
+  padding:12px 18px;cursor:pointer;
+  background:#FFFFFF;border:1px solid rgba(20,36,58,.26);
+  font-family:var(--sans);font-size:.96rem;font-weight:500;letter-spacing:-.012em;
+  color:var(--ink);line-height:1.25;text-align:left;
+  transition:background .18s var(--e),border-color .18s var(--e),
+             color .18s var(--e),transform .18s var(--e)}
+.chips label:hover,.chips button:hover{border-color:var(--navy);color:var(--navy);
+  background:rgba(19,79,137,.06)}
+.chips label:active,.chips button:active{transform:scale(.97)}
+.chips input:checked + label{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.chips input:focus-visible + label{outline:2px solid var(--navy);outline-offset:3px}
+.chips button.er-valgt{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+.chips--legg button::before{content:"+";margin-right:9px;color:var(--navy);
+  font-family:var(--mono);font-size:1rem;line-height:1}
+.chips--legg button:hover::before,.chips--legg button.er-valgt::before{color:inherit}
+
+/* ---- company search ---------------------------------------------------- */
+.sk-sok{position:relative}
+.sk-sok__boks{position:relative}
+.sk-sok__boks input{padding-right:52px}
+.sk-sok__snurr{position:absolute;right:17px;top:50%;width:18px;height:18px;
+  margin-top:-9px;border:2px solid rgba(19,79,137,.25);border-top-color:var(--navy);
+  border-radius:50%;animation:snurr .7s linear infinite}
+@keyframes snurr{to{transform:rotate(360deg)}}
+
+.sk-treff{position:absolute;z-index:20;left:0;right:0;top:calc(100% - 30px);
+  background:#FFFFFF;border:1px solid var(--navy);max-height:330px;overflow:auto;
+  list-style:none;margin:0;padding:0}
+.sk-treff li{border-bottom:1px solid rgba(20,36,58,.12)}
+.sk-treff li:last-child{border-bottom:0}
+.sk-treff button{width:100%;text-align:left;appearance:none;background:none;border:0;
+  cursor:pointer;padding:13px 16px;display:block;transition:background .15s var(--e)}
+.sk-treff button:hover,.sk-treff button:focus,.sk-treff li.er-aktiv button{
+  background:rgba(19,79,137,.09);outline:none}
+.sk-treff__navn{display:block;font-size:1rem;font-weight:500;color:var(--ink);
+  letter-spacing:-.014em;line-height:1.3}
+.sk-treff__meta{display:block;margin-top:3px;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.05em;color:rgba(20,36,58,.72)}
+.sk-treff__tom{padding:14px 16px;font-size:.92rem;color:rgba(20,36,58,.75)}
+
+.f__note[data-ok="ja"]{color:var(--navy);font-weight:500}
+.f__note[data-ok="nei"]{color:#9B2C2C;font-weight:500}
+
+/* ---- step navigation --------------------------------------------------- */
+.sk-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  flex-wrap:wrap;border-top:1px solid rgba(20,36,58,.16);padding-top:clamp(22px,2.8vw,32px)}
+.sk-nav__hoyre{display:flex;align-items:center;gap:clamp(14px,2.4vw,24px);margin-left:auto}
+.sk-tilbake{appearance:none;background:none;border:0;cursor:pointer;padding:12px 0;
+  font-family:var(--sans);font-size:.98rem;font-weight:500;color:var(--navy);
+  position:relative;transition:transform .3s var(--e)}
+.sk-tilbake::before{content:"\2190";position:absolute;left:-24px;top:50%;
+  transform:translate(-8px,-50%);opacity:0;
+  transition:opacity .25s var(--e),transform .3s var(--e)}
+.sk-tilbake:hover{transform:translateX(24px)}
+.sk-tilbake:hover::before{opacity:1;transform:translate(0,-50%)}
+.sk-lagret{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--navy);opacity:0;transition:opacity .4s var(--e)}
+.sk-lagret.vis{opacity:1}
+.tab--send{background:#0E3D6C}
+
+/* ---- review ------------------------------------------------------------ */
+.sk-oppsum{margin-bottom:clamp(28px,3.4vw,40px);display:grid;gap:16px}
+.sk-oppsum__gruppe{background:#FFFFFF;border:1px solid rgba(20,36,58,.18);
+  padding:clamp(18px,2.2vw,24px)}
+.sk-oppsum__k{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--navy);margin-bottom:14px;
+  padding-bottom:12px;border-bottom:1px solid rgba(20,36,58,.14)}
+.sk-rad{display:grid;grid-template-columns:1fr;gap:2px;padding:9px 0;align-items:baseline}
+@media(min-width:620px){.sk-rad{grid-template-columns:minmax(0,200px) 1fr;gap:20px}}
+.sk-rad dt{font-size:.92rem;color:rgba(20,36,58,.72);line-height:1.5}
+.sk-rad dd{margin:0;line-height:1.5}
+.sk-rad button{appearance:none;background:none;border:0;padding:0;cursor:pointer;
+  font:inherit;font-size:1rem;font-weight:500;color:var(--ink);text-align:left;
+  border-bottom:1px dashed rgba(20,36,58,.35);
+  transition:border-color .2s var(--e),color .2s var(--e)}
+.sk-rad button:hover{color:var(--navy);border-bottom-color:var(--navy);border-bottom-style:solid}
+.sk-tomt{color:rgba(20,36,58,.6) !important;font-weight:400 !important;font-style:italic}
+
+.sk-samtykke{display:grid;grid-template-columns:26px 1fr;gap:16px;align-items:start;
+  background:#FFFFFF;border:1px solid rgba(20,36,58,.2);padding:clamp(18px,2.2vw,24px)}
+.sk-samtykke input{appearance:none;width:26px;height:26px;margin:0;cursor:pointer;
+  border:1px solid rgba(20,36,58,.45);background:#FFFFFF;position:relative;flex:0 0 auto}
+.sk-samtykke input:hover{border-color:var(--navy)}
+.sk-samtykke input:checked{background:var(--navy);border-color:var(--navy)}
+.sk-samtykke input:checked::after{content:"\2713";position:absolute;inset:0;
+  display:grid;place-items:center;color:#FFFFFF;font-size:1rem;line-height:1}
+.sk-samtykke input:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+.sk-samtykke label{font-size:.98rem;line-height:1.6;color:var(--ink)}
+.sk-samtykke .ul{color:var(--navy);border-bottom:1px solid currentColor;
+  padding-bottom:1px;margin-left:6px;white-space:nowrap}
+.sk-samtykke .f__feil{grid-column:2}
+
+/* ---- receipt ----------------------------------------------------------- */
+.sk-kvittering h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:500;
+  letter-spacing:-.035em;margin-bottom:20px}
+.sk-kvittering__hva{margin-top:clamp(28px,3.4vw,40px)}
+.sk-kvittering__hva pre{
+  font-family:var(--mono);font-size:.82rem;line-height:1.8;color:var(--ink);
+  white-space:pre-wrap;word-break:break-word;
+  border:1px solid rgba(20,36,58,.2);padding:clamp(18px,2.4vw,26px);
+  max-height:340px;overflow:auto;background:#FFFFFF}
+.sk-kvittering__knapper{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+
+.sk-tom{margin-top:clamp(28px,3.4vw,40px)}
+.sk-tomknapp{appearance:none;background:none;border:0;padding:0;cursor:pointer;
+  font:inherit;font-size:inherit;color:var(--navy);
+  border-bottom:1px solid currentColor;margin-left:6px}
+
+/* Without JS every step is shown so the page stays readable, but the submit
+   button comes off: a native submit would put the seller's name, phone and
+   company into the URL, and that is not a thing to do with this data. */
+html:not(.js) .sk-steg[hidden]{display:block}
+html:not(.js) .sk-fremdrift,
+html:not(.js) #neste,
+html:not(.js) #tilbake,
+html:not(.js) .sk-nav,
+html:not(.js) .sk-tom,
+html:not(.js) .sk-sok{display:none}
+html.js .sk-steg[hidden]{display:none}
+html.js .sk-ujs{display:none}
+.sk-ujs{background:#FFFFFF;border-left:3px solid var(--navy);padding:20px 22px;
+  margin:clamp(26px,3.2vw,38px) 0;max-width:62ch}
+.sk-ujs__k{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+.sk-ujs p{line-height:1.7;color:var(--ink)}
+.sk-ujs a{color:var(--navy);border-bottom:1px solid currentColor;padding-bottom:1px}
+
+@media(prefers-reduced-motion:reduce){
+  .tab:hover{transform:none}
+  .sk-sok__snurr{animation:none}
+  .sk-bar span{transition:none}
+}
+
+/* when the search cannot reach the register, the note carries the whole message
+   and deserves the weight of one */
+.f__note[data-ok="nei"]{
+  display:block;background:#FFFFFF;border-left:3px solid #9B2C2C;
+  padding:14px 16px;font-size:.94rem;line-height:1.6;color:var(--ink);font-weight:400}
