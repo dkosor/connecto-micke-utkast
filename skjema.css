@@ -9,10 +9,12 @@
   letter-spacing:-.045em;line-height:.95;margin-bottom:clamp(20px,2.6vw,30px)}
 
 /* the confidentiality promise, the first thing a seller looks for */
-.sk-lovnad{margin-top:clamp(30px,3.6vw,44px);border-left:3px solid var(--navy);
-  padding:4px 0 4px 22px;max-width:62ch}
+.sk-lovnad{margin-top:clamp(30px,3.6vw,44px);max-width:62ch;
+  background:#FFFFFF;border:1px solid rgba(20,36,58,.18);
+  padding:clamp(18px,2.2vw,24px)}
 .sk-lovnad__k{font-family:var(--mono);font-size:.7rem;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+  letter-spacing:.2em;text-transform:uppercase;color:var(--navy);
+  margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(20,36,58,.14)}
 .sk-lovnad p:last-child{line-height:1.7;color:rgba(20,36,58,.88)}
 .sk-tid{margin-top:24px;font-size:.92rem;color:rgba(20,36,58,.72);line-height:1.7;max-width:62ch}
 
@@ -221,10 +223,11 @@ html:not(.js) .sk-tom,
 html:not(.js) .sk-sok{display:none}
 html.js .sk-steg[hidden]{display:none}
 html.js .sk-ujs{display:none}
-.sk-ujs{background:#FFFFFF;border-left:3px solid var(--navy);padding:20px 22px;
-  margin:clamp(26px,3.2vw,38px) 0;max-width:62ch}
+.sk-ujs{background:#FFFFFF;border:1px solid rgba(20,36,58,.18);
+  padding:clamp(18px,2.2vw,24px);margin:clamp(26px,3.2vw,38px) 0;max-width:62ch}
 .sk-ujs__k{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+  text-transform:uppercase;color:var(--navy);
+  margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(20,36,58,.14)}
 .sk-ujs p{line-height:1.7;color:var(--ink)}
 .sk-ujs a{color:var(--navy);border-bottom:1px solid currentColor;padding-bottom:1px}
 
@@ -234,8 +237,14 @@ html.js .sk-ujs{display:none}
   .sk-bar span{transition:none}
 }
 
-/* when the search cannot reach the register, the note carries the whole message
-   and deserves the weight of one */
+/* When the search cannot reach the register the note carries the whole message,
+   so it takes the form's own error language: the same box as every other panel
+   on this page, and the same exclamation badge as a field error. */
 .f__note[data-ok="nei"]{
-  display:block;background:#FFFFFF;border-left:3px solid #9B2C2C;
-  padding:14px 16px;font-size:.94rem;line-height:1.6;color:var(--ink);font-weight:400}
+  display:flex;gap:12px;align-items:flex-start;
+  background:#FFFFFF;border:1px solid rgba(155,44,44,.45);
+  padding:16px 18px;font-size:.94rem;line-height:1.6;color:var(--ink);font-weight:400}
+.f__note[data-ok="nei"]::before{
+  content:"!";display:grid;place-items:center;width:20px;height:20px;flex:0 0 auto;
+  margin-top:2px;background:#9B2C2C;color:#FFFFFF;
+  font-family:var(--mono);font-size:.74rem;line-height:1}
