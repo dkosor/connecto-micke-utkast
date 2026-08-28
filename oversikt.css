@@ -56,26 +56,44 @@
   transition:transform .34s var(--e)}
 .ov-kort__en:hover .ov-kort__a{transform:translateX(6px)}
 
-/* ---- retningene -------------------------------------------------------- */
-.ov-retn{margin-top:clamp(34px,4.2vw,52px);display:grid;gap:clamp(30px,3.6vw,44px)}
-.ov-retn__en figure{margin:0;display:grid;gap:clamp(16px,2.2vw,26px);align-items:start}
-@media(min-width:900px){
-  .ov-retn__en figure{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
-    gap:clamp(24px,3vw,40px)}
-}
-.ov-retn__en img{width:100%;height:auto;display:block;
-  border:1px solid rgba(20,36,58,.16);filter:saturate(.96)}
-.ov-retn__en figcaption{display:block}
-.ov-retn__n{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;
-  color:var(--label);margin-bottom:10px}
-.ov-retn__h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-  font-size:clamp(1.25rem,2vw,1.6rem);font-weight:500;letter-spacing:-.03em;
-  color:var(--ink);margin-bottom:12px}
-.ov-retn__h b{font-family:var(--mono);font-size:.6rem;font-weight:500;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--paper);background:var(--navy);padding:5px 9px}
-.ov-retn__d{display:block;font-size:.96rem;line-height:1.65;color:rgba(20,36,58,.78);
-  max-width:46ch}
-.ov-retn__en.er-valgt img{border-color:var(--navy);border-width:2px}
+/* ---- for og etter ------------------------------------------------------ */
+.ov-ff__par{margin-top:clamp(32px,4vw,48px);display:grid;gap:clamp(20px,2.6vw,30px)}
+@media(min-width:820px){.ov-ff__par{grid-template-columns:1fr 1fr}}
+
+.ov-ff__en{margin:0;display:flex;flex-direction:column;min-width:0}
+.ov-ff__topp{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-bottom:12px}
+.ov-ff__merke{font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;padding:7px 12px;border:1px solid}
+.ov-ff__merke--for{color:var(--label);border-color:rgba(20,36,58,.3)}
+.ov-ff__merke--etter{color:var(--paper);background:var(--navy);border-color:var(--navy)}
+.ov-ff__url{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--label)}
+
+/* rammen holder hele siden, men bare et vindu av den om gangen */
+.ov-ff__ramme{border:1px solid rgba(20,36,58,.22);background:#FFFFFF;
+  height:min(62vh,620px);overflow-y:auto;overscroll-behavior:contain}
+.ov-ff__ramme--mobil{height:min(58vh,560px)}
+.ov-ff__ramme img{width:100%;height:auto;display:block}
+.ov-ff__hint{margin-top:16px;font-size:.88rem;color:rgba(20,36,58,.72);
+  display:flex;align-items:center;gap:9px}
+.ov-ff__hint::before{content:"";width:22px;height:1px;background:var(--rule);flex:0 0 auto}
+
+.ov-ff__punkter{margin-top:clamp(34px,4vw,50px);display:grid;gap:clamp(24px,3vw,40px);
+  border-top:1px solid var(--rule);padding-top:clamp(26px,3vw,36px)}
+@media(min-width:820px){.ov-ff__punkter{grid-template-columns:1fr 1fr}}
+.ov-ff__k{font-family:var(--mono);font-size:.68rem;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--navy);margin-bottom:16px}
+.ov-ff__punkter ul{display:grid;gap:12px}
+.ov-ff__punkter li{position:relative;padding-left:22px;font-size:.96rem;line-height:1.6;
+  color:rgba(20,36,58,.82);max-width:46ch}
+.ov-ff__punkter li::before{content:"";position:absolute;left:0;top:.62em;
+  width:9px;height:1px;background:var(--navy)}
+
+.ov-ff__mobil{margin-top:clamp(38px,4.6vw,58px);border-top:1px solid var(--rule);
+  padding-top:clamp(26px,3vw,36px)}
+.ov-ff__par--mobil{margin-top:20px}
+@media(min-width:520px){.ov-ff__par--mobil{grid-template-columns:1fr 1fr}}
 
 /* ---- nummererte lister (avklares, videre) ------------------------------ */
 .ov-sp,.ov-steg{margin-top:clamp(32px,4vw,48px);display:grid;gap:0;
