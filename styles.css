@@ -580,3 +580,22 @@ body::after{
 /* the filing tab, inverted for the navy field */
 .tab--inv{background:var(--paper);color:var(--navy)}
 .tab--inv:hover{background:#FFFFFF}
+
+/* 11. The rhinoceros is a watermark, not a neighbour. Measured at 1024 and
+       1440 the contact headline and the footer address ran straight into it,
+       so the mark now starts past the middle of the section and the text keeps
+       a measure instead of running the full width of the sheet. */
+.kontakt__h{max-width:16ch}
+@media(min-width:820px){
+  .kontakt__rhino{left:54%;right:-6%;width:auto}
+}
+/* Under 820px er det ingen plass ved siden av teksten, saa neshornet ligger bak
+   den. Da maa streken ned i tekstur, ikke ligge og konkurrere med bokstavene. */
+@media(max-width:819px){
+  .kontakt__rhino .rh-ghost{stroke:rgba(242,241,236,.07)}
+  .kontakt__rhino .rh-draw{stroke:rgba(242,241,236,.2)}
+}
+
+/* "ikke oppgitt" er en opplysning om at noe mangler, ikke en verdi, saa den
+   settes lettere enn tallene den staar sammen med */
+.row__d.is-na{color:var(--label);font-style:italic;letter-spacing:.02em}
